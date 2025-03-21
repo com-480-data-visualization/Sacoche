@@ -26,7 +26,7 @@ The marathon dataset collects a large amount of data on participants, including 
 2016: (26,630 rows, 24 columns)  
 2017: (26,410 rows, 25 columns)
 
-In the 2016 dataset, there is a missing column, which is labeled as Unnamed:. This column appears to be extraneous and does not contain meaningful data for the analysis.
+In the 2016 dataset, there is a missing column, which is labeled as 'Unnamed:'. This column appears to be extraneous and does not contain meaningful data for the analysis.
 <p align="center">
   <img src="Images/participants_age_distribution.png" width="500">
 </p>
