@@ -19,9 +19,14 @@ The goal of this project is to provide an engaging and accessible way to analyze
 
 ### Exploratory Data Analysis
 
-> Pre-processing of the data set you chose
-> - Show some basic statistics and get insights about the data
 
+The marathon dataset collects a large amount of data on participants, including their demographics, times, and performance metrics. The datasets for the years 2015, 2016, and 2017 are extensive,  each containing a large number of rows and features, offering rich material for analysis. The shapes of the datasets are as follows:
+
+2015: (26,598 rows, 25 columns)  
+2016: (26,630 rows, 24 columns)  
+2017: (26,410 rows, 25 columns)
+
+In the 2016 dataset, there is a missing column, which is labeled as Unnamed:. This column appears to be extraneous and does not contain meaningful data for the analysis.
 <p align="center">
   <img src="participants_age_distribution.png" width="500">
 </p>
