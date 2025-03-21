@@ -2,8 +2,8 @@
 
 | Student's name    | SCIPER |
 | --------------    | ------ |
-| Clara Dalon       ||    
-| Jules Pirot       ||
+| Clara Dalon       | 316583|    
+| Jules Pirot       | 313824|
 | Amaury Pailloux   | 326688 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
