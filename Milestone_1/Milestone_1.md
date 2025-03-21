@@ -28,17 +28,17 @@ The marathon dataset collects a large amount of data on participants, including 
 
 In the 2016 dataset, there is a missing column, which is labeled as Unnamed:. This column appears to be extraneous and does not contain meaningful data for the analysis.
 <p align="center">
-  <img src="participants_age_distribution.png" width="500">
+  <img src="Images/participants_age_distribution.png" width="500">
 </p>
 The age distribution shows a variety of participants across different age ranges, with a notable portion in the 30-50 age group, but also representation from younger and older participants. This shows a diverse demographic involved in the event, and the data is reliable for understanding the range of ages.
 <p align="center">
-  <img src="gender.png" width="45%" style="display:inline-block; margin-right:10px;">
-  <img src="gender_distribution.png" width="35%" style="display:inline-block;">
+  <img src="Images/gender.png" width="45%" style="display:inline-block; margin-right:10px;">
+  <img src="Images/gender_distribution.png" width="35%" style="display:inline-block;">
 </p>
 The gender distribution shows a slight majority of male participants (54.7% vs. 45.3% female). The boxplot of finishing times by gender reveals that women tend to have slightly shorter finishing times, with fewer extreme values compared to men. This indicates a reliable and consistent gender comparison in the dataset.
 
 <p align="center">
-  <img src="finishing_times.png" width="500">
+  <img src="Images/finishing_times.png" width="500">
 </p>
 The variations in finishing times across 2015-2017 show some differences, but the overall trends remain similar. This suggests that the dataset is reliable for year-to-year comparisons, although factors like weather or event organization might influence performance.
 
