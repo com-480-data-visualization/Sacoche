@@ -42,10 +42,21 @@ The gender distribution shows a slight majority of male participants (54.7% vs. 
 </p>
 The variations in finishing times across 2015-2017 show some differences, but the overall trends remain similar. This suggests that the dataset is reliable for year-to-year comparisons, although factors like weather or event organization might influence performance.
 
+
+<p align="center">
+  <img src="Images/race_strategy.png" width="500">
+</p>
+We can see the trend in the race strategy. It is worth noting that Boston Marathon is really comptetitive as we have to qualify for it or pay expensive fees. That is why the strategy of the best runners is quite similar to the average strategy.
+
+
+
 ### Related work
 
 
-> - What others have already done with the data?
-> - Why is your approach original?
-> - What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
-> - In case you are using a dataset that you have already explored in another context (ML or ADA course, semester project...), you are required to share the report of that work to outline the differences with the submission for this class.
+In this [notebook](https://www.kaggle.com/code/drgilermo/negative-split-and-the-wall), they tried to analize the "negative split" strategy in which the runner runs the 2nd part faster than the 1st part. And the phenomenon of "The Wall" - a condition of sudden fatigue which typically hits the marathon runner after about 30Ks. 
+
+And on [another notebook](https://www.kaggle.com/code/abhishek0032/indian-athletes-marathon-insights-triumph) they focused on Indian runners and used other datasets to see the evolution of the gender difference on multiple distances. Notably, they showed that on very long distance (up to 100km) women can match men speeds.
+
+Our approach is original in the sense that we provide a broader analysis on different race strategies (not only the "negative split") according to level, age, gender, nationality, weather and other factors. And the goal is to provide runners this data so that they visualize what strategy works better according to their condition. And more importantly draw inspiration from other runners' strategies to know what they need to do to step up.
+
+Our main (realistic) source of inspiration is [gapminder](https://www.gapminder.org/tools/#$model$markers$billy$encoding$selected$data$;;;;;;&chart-type=mountain&url=v2). They provide an interactive and even animated visualization of the data. It is really clear and easy to understand the trends. 
