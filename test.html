@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Marathon Statistics Dashboard</title>
+
+    <!-- Import Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Import Chart.js for the graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+
+    <style>
+        /* Basic styling to enhance the dashboard appearance */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Styling for range slider */
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Styling for select boxes */
+        select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <!-- Main Container -->
+    <div class="container mx-auto">
+
+        <!-- Dashboard Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-blue-700">Boston Marathon Statistics Dashboard</h1>
+            <p class="text-gray-600">Interactive analysis of marathon runners' performance data</p>
+        </header>
+
+        <!-- Main Dashboard Content -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- SECTION 1: Filters Panel -->
+            <div class="card md:col-span-1">
+                <h2 class="text-xl font-bold mb-4">Filters</h2>
+
+                <!-- Age Range Filter -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Age Range</label>
+                    <div class="flex items-center">
+                        <span class="mr-2">18</span>
+                        <input type="range" min="18" max="80" value="18" class="flex-grow" id="ageRange">
+                        <span class="ml-2">80</span>
+                    </div>
+                    <div class="text-center text-sm text-gray-500">18 - 80 years</div>
+                </div>
+
+                <!-- Gender Filter -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Gender</label>
+                    <div>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="checkbox" class="form-checkbox" checked>
+                            <span class="ml-2">Male</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="checkbox" class="form-checkbox" checked>
+                            <span class="ml-2">Female</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" checked>
+                            <span class="ml-2">Non-binary/Other</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Runner Level Filter -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Runner Level</label>
+                    <select multiple class="form-select" size="4">
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                        <option>Elite</option>
+                    </select>
+                    <div class="text-xs text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple</div>
+                </div>
+
+                <!-- Weather Condition Filter -->
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-1">Weather Condition</label>
+                    <select multiple class="form-select" size="4">
+                        <option>Sunny</option>
+                        <option>Cloudy</option>
+                        <option>Rainy</option>
+                        <option>Windy</option>
+                    </select>
+                    <div class="text-xs text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple</div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Dashboard Main Content -->
+            <div class="md:col-span-2">
+
+                <!-- Summary Statistics Cards -->
+                <div class="card mb-6">
+                    <h2 class="text-xl font-bold mb-4">Summary Statistics</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+                        <!-- Total Runners Stat -->
+                        <div class="text-center">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Total Runners</div>
+                        </div>
+
+                        <!-- Average Finish Time Stat -->
+                        <div class="text-center">
+                            <div class="stat-value">00:00:00</div>
+                            <div class="stat-label">Average Finish Time</div>
+                        </div>
+
+                        <!-- Fastest Time Stat -->
+                        <div class="text-center">
+                            <div class="stat-value">00:00:00</div>
+                            <div class="stat-label">Fastest Time</div>
+                        </div>
+
+                        <!-- Slowest Time Stat -->
+                        <div class="text-center">
+                            <div class="stat-value">00:00:00</div>
+                            <div class="stat-label">Slowest Time</div>
+                        </div>
+
+                        <!-- Median Time Stat -->
+                        <div class="text-center">
+                            <div class="stat-value">00:00:00</div>
+                            <div class="stat-label">Median Time</div>
+                        </div>
+
+                        <!-- Completion Rate Stat -->
+                        <div class="text-center">
+                            <div class="stat-value">0%</div>
+                            <div class="stat-label">Completion Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finish Time Distribution Chart -->
+                <div class="card">
+                    <h2 class="text-xl font-bold mb-4">Finish Time Distribution</h2>
+                    <div style="height: 300px;">
+                        <canvas id="finishTimeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Chart -->
+    <script>
+        // Wait for the document to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the canvas element for the chart
+            const ctx = document.getElementById('finishTimeChart').getContext('2d');
+
+            // Create an empty chart (placeholder for actual data)
+            const finishTimeChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2:00-2:30', '2:30-3:00', '3:00-3:30', '3:30-4:00', '4:00-4:30', '4:30-5:00', '5:00+'],
+                    datasets: [{
+                        label: 'Number of Runners',
+                        data: [0, 0, 0, 0, 0, 0, 0], // Empty data
+                        backgroundColor: 'rgba(37, 99, 235, 0.7)',
+                        borderColor: 'rgba(37, 99, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Runners'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Finish Time (Hours:Minutes)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Filter functionality would be added here in a real application
+            // This is just a simplified placeholder for demonstration
+        });
+    </script>
+</body>
+</html>
