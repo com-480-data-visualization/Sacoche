@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Marathon - Parcours Final</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .marathon-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #1e40af 0%, #1e3a8a 100%);
+        }
+        
+        .route-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .marathon-path {
+            fill: none;
+            stroke: #fbbf24;
+            stroke-width: 3;
+            stroke-dasharray: 10, 5;
+            opacity: 0.8;
+        }
+        
+        .runner {
+            r: 12;
+            opacity: 0.9;
+            cursor: pointer;
+            transition: r 0.3s ease;
+        }
+        
+        .runner:hover {
+            r: 15;
+            opacity: 1;
+        }
+        
+        .runner-debutant {
+            fill: #10b981;
+            animation: moveRunner 30s linear infinite;
+        }
+        
+        .runner-intermediaire {
+            fill: #3b82f6;
+            animation: moveRunner 22.5s linear infinite;
+        }
+        
+        .runner-avance {
+            fill: #f59e0b;
+            animation: moveRunner 17.5s linear infinite;
+        }
+        
+        .runner-elite {
+            fill: #ef4444;
+            animation: moveRunner 12.5s linear infinite;
+        }
+        
+        .runner-label {
+            font-size: 10px;
+            font-weight: bold;
+            fill: white;
+            text-anchor: middle;
+            dominant-baseline: central;
+            pointer-events: none;
+        }
+        
+        @keyframes moveRunner {
+            from {
+                offset-distance: 0%;
+            }
+            to {
+                offset-distance: 100%;
+            }
+        }
+        
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 300px;
+        }
+        
+        .location-marker {
+            position: absolute;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .start-marker {
+            top: 40%;
+            left: 8%;
+            background: #10b981;
+            color: white;
+        }
+        
+        .finish-marker {
+            top: 30%;
+            right: 8%;
+            background: #ef4444;
+            color: white;
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .legend-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .title-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6, #1e3a8a);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dashboard-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .dashboard-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+        
+        .distance-info {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #fbbf24;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #fbbf24;
+        }
+        
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .click-instruction {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            font-size: 12px;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="marathon-container">
+        <div class="title-banner">
+            <i class="fas fa-running mr-3"></i>
+            Boston Marathon 2024 - Parcours Interactif
+            <i class="fas fa-running ml-3"></i>
+        </div>
+        
+        <div class="info-panel">
+            <h3 class="text-xl font-bold mb-3">
+                <i class="fas fa-info-circle mr-2"></i>
+                Informations
+            </h3>
+            <div class="text-sm space-y-2">
+                <p><strong>Distance:</strong> 42,195 km (26,2 miles)</p>
+                <p><strong>Départ:</strong> Hopkinton, MA</p>
+                <p><strong>Arrivée:</strong> Boston, MA</p>
+                <p><strong>Dénivelé:</strong> -140m</p>
+                <p><strong>Record Masculin:</strong> 2:03:02</p>
+                <p><strong>Record Féminin:</strong> 2:19:59</p>
+            </div>
+        </div>
+        
+        <div class="click-instruction">
+            <i class="fas fa-mouse-pointer mr-2"></i>
+            <strong>Instructions:</strong><br>
+            Cliquez sur un point de coureur pour voir les statistiques du niveau correspondant
+        </div>
+        
+        <svg class="route-svg" viewBox="0 0 1000 600">
+            <!-- Parcours réaliste du Boston Marathon -->
+            <path id="marathon-route" 
+                  d="M 80 270 
+                     C 120 275, 160 280, 200 285
+                     C 250 290, 300 295, 350 300
+                     C 400 302, 450 298, 500 295
+                     C 550 290, 600 285, 650 275
+                     C 700 265, 750 250, 800 235
+                     C 850 220, 900 210, 920 205"
+                  class="marathon-path"/>
+            
+            <!-- Coureurs animés avec labels -->
+            <g class="runner-group" data-level="Débutant">
+                <circle class="runner runner-debutant" r="12">
+                    <animateMotion dur="30s" repeatCount="indefinite">
+                        <mpath href="#marathon-route"/>
+                    </animateMotion>
+                </circle>
+                <text class="runner-label">D</text>
+            </g>
+            
+            <g class="runner-group" data-level="Intermédiaire">
+                <circle class="runner runner-intermediaire" r="12">
+                    <animateMotion dur="22.5s" repeatCount="indefinite">
+                        <mpath href="#marathon-route"/>
+                    </animateMotion>
+                </circle>
+                <text class="runner-label">I</text>
+            </g>
+            
+            <g class="runner-group" data-level="Avancé">
+                <circle class="runner runner-avance" r="12">
+                    <animateMotion dur="17.5s" repeatCount="indefinite">
+                        <mpath href="#marathon-route"/>
+                    </animateMotion>
+                </circle>
+                <text class="runner-label">A</text>
+            </g>
+            
+            <g class="runner-group" data-level="Elite">
+                <circle class="runner runner-elite" r="12">
+                    <animateMotion dur="12.5s" repeatCount="indefinite">
+                        <mpath href="#marathon-route"/>
+                    </animateMotion>
+                </circle>
+                <text class="runner-label">É</text>
+            </g>
+        </svg>
+        
+        <!-- Marqueurs de lieu -->
+        <div class="location-marker start-marker">
+            <i class="fas fa-play mr-2"></i>
+            START - Hopkinton
+        </div>
+        
+        <div class="location-marker finish-marker">
+            <i class="fas fa-flag-checkered mr-2"></i>
+            FINISH - Boston
+        </div>
+        
+        <div class="distance-info">
+            <i class="fas fa-road mr-2"></i>
+            26.2 miles
+        </div>
+        
+        <!-- Légende des coureurs -->
+        <div class="legend">
+            <h4 class="font-bold mb-2">
+                <i class="fas fa-users mr-2"></i>
+                Niveaux de Coureurs
+            </h4>
+            <div class="legend-item" onclick="goToStats('Débutant')">
+                <div class="legend-color" style="background: #10b981;"></div>
+                <span>Débutant (4h+) - D</span>
+            </div>
+            <div class="legend-item" onclick="goToStats('Intermédiaire')">
+                <div class="legend-color" style="background: #3b82f6;"></div>
+                <span>Intermédiaire (3h-4h) - I</span>
+            </div>
+            <div class="legend-item" onclick="goToStats('Avancé')">
+                <div class="legend-color" style="background: #f59e0b;"></div>
+                <span>Avancé (2h30-3h) - A</span>
+            </div>
+            <div class="legend-item" onclick="goToStats('Elite')">
+                <div class="legend-color" style="background: #ef4444;"></div>
+                <span>Élite (2h-2h30) - É</span>
+            </div>
+        </div>
+        
+        <!-- Bouton vers le dashboard -->
+        <a href="#" class="dashboard-btn" onclick="goToDashboard()">
+            <i class="fas fa-chart-bar mr-2"></i>
+            Voir les statistiques
+        </a>
+        
+        <!-- Tooltip -->
+        <div class="tooltip" id="tooltip"></div>
+    </div>
+    
+    <script>
+        function goToDashboard() {
+            window.location.href = 'stats.html';
+        }
+        
+        function goToStats(level) {
+            // Navigate to stats page with runner level filter
+            window.location.href = `stats.html?runnerLevel=${encodeURIComponent(level)}`;
+        }
+        
+        // Animation automatique en boucle et gestion des clics
+        document.addEventListener('DOMContentLoaded', function() {
+            const runnerGroups = document.querySelectorAll('.runner-group');
+            const tooltip = document.getElementById('tooltip');
+            
+            runnerGroups.forEach(group => {
+                const circle = group.querySelector('.runner');
+                const text = group.querySelector('.runner-label');
+                const level = group.getAttribute('data-level');
+                
+                // Synchroniser le texte avec le cercle
+                const animateMotion = circle.querySelector('animateMotion');
+                if (animateMotion) {
+                    const textAnimateMotion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                    textAnimateMotion.setAttribute('dur', animateMotion.getAttribute('dur'));
+                    textAnimateMotion.setAttribute('repeatCount', 'indefinite');
+                    
+                    const mpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+                    mpath.setAttribute('href', '#marathon-route');
+                    textAnimateMotion.appendChild(mpath);
+                    text.appendChild(textAnimateMotion);
+                }
+                
+                // Gestion du clic sur le groupe de coureur
+                group.addEventListener('click', function() {
+                    goToStats(level);
+                });
+                
+                // Gestion du hover
+                group.addEventListener('mouseenter', function(e) {
+                    tooltip.style.opacity = '1';
+                    tooltip.innerHTML = `<strong>${level}</strong><br>Cliquez pour voir les stats`;
+                });
+                
+                group.addEventListener('mouseleave', function() {
+                    tooltip.style.opacity = '0';
+                });
+                
+                group.addEventListener('mousemove', function(e) {
+                    tooltip.style.left = (e.clientX + 10) + 'px';
+                    tooltip.style.top = (e.clientY - 10) + 'px';
+                });
+                
+                group.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body>
+</html>
