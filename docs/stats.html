@@ -305,9 +305,9 @@
         
         <div class="filter-section">
           <strong>Runner Level</strong>
-          <label><input type="checkbox" name="level" value="Débutant" checked> 🥉 Beginner</label>
-          <label><input type="checkbox" name="level" value="Intermédiaire" checked> 🥈 Intermediate</label>
-          <label><input type="checkbox" name="level" value="Avancé" checked> 🥇 Advanced</label>
+          <label><input type="checkbox" name="level" value="Beginner" checked> 🥉 Beginner</label>
+          <label><input type="checkbox" name="level" value="Intermediate" checked> 🥈 Intermediate</label>
+          <label><input type="checkbox" name="level" value="Advanced" checked> 🥇 Advanced</label>
           <label><input type="checkbox" name="level" value="Elite" checked> 🏆 Elite</label>
         </div>
 
@@ -753,7 +753,7 @@
       const ageGroups = [...new Set(segments.map(s => s.age_range))].sort((a, b) => {
         return ageRanges.indexOf(a) - ageRanges.indexOf(b);
       });
-      const levels = ['Elite', 'Avancé', 'Intermédiaire', 'Débutant'];
+      const levels = ['Elite', 'Advanced', 'Intermediate', 'Beginner'];
       
       console.log('📊 Chart age groups:', ageGroups);
       console.log('📊 Chart levels:', levels);
@@ -767,9 +767,9 @@
       
       const colors = {
         'Elite': '#e74c3c',
-        'Avancé': '#f39c12',
-        'Intermédiaire': '#3498db',
-        'Débutant': '#2ecc71'
+        'Advanced': '#f39c12',
+        'Intermediate': '#3498db',
+        'Beginner': '#2ecc71'
       };
       
       const datasets = levels.map(level => ({
