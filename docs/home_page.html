@@ -37,6 +37,19 @@
             pointer-events: none;
             z-index: -1;
         }
+        
+        #background-rect {
+            filter: brightness(0.9) contrast(1.1);
+            /* Assombrit légèrement la carte pour mieux voir le tracé */
+        }
+
+        .marathon-path {
+            stroke: #ff4444 !important;      /* Rouge vif pour contraster */
+            stroke-width: 6 !important;      /* Plus épais */
+            stroke-dasharray: none !important; /* Ligne continue */
+            filter: drop-shadow(0 0 3px rgba(255,255,255,0.8)); /* Ombre blanche */
+            opacity: 1 !important;
+        }
 
         .marathon-container {
             position: relative;
@@ -57,7 +70,7 @@
         .marathon-path {
             fill: none;
             stroke: #3b82f6;
-            stroke-width: 4;
+            stroke-width: 2;
             stroke-dasharray: 8, 4;
             opacity: 0.9;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
@@ -279,6 +292,11 @@
             <strong>Instructions:</strong><br>
             Click on a runner's point to see the statistics for the corresponding level.
         </div>
+
+        <div class="map-loading" id="mapLoading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.8); color: white; padding: 20px; border-radius: 10px; z-index: 15;">
+            <i class="fas fa-spinner fa-spin mr-2"></i>
+            Loading Google Maps background...
+        </div>
         
         <svg class="route-svg" viewBox="0 0 1000 600">
             <!-- Parcours réaliste du Boston Marathon -->
@@ -399,43 +417,77 @@
             }
         }
 
+        // Créer un tracé par défaut basé sur les coordonnées connues du Boston Marathon
+        function createDefaultPath() {
+            console.log('🔄 Creating default Boston Marathon path...');
+            
+            // 📍 Coordonnées EXACTES avec votre ligne de départ/arrivée
+            const waypoints = [
+                { lat: 42.229974, lon: -71.518018 }, // 🏁 DÉPART exact
+                { lat: 42.25139, lon: -71.47189 },   // Ashland
+                { lat: 42.27432, lon: -71.42496 },   // Framingham  
+                { lat: 42.2823, lon: -71.38369 },    // Natick
+                { lat: 42.29606, lon: -71.31004 },   // Wellesley
+                { lat: 42.31005, lon: -71.27682 },   // Newton
+                { lat: 42.32532, lon: -71.25768 },   // Newton Hills
+                { lat: 42.33946, lon: -71.23356 },   // Heartbreak Hill
+                { lat: 42.349701, lon: -71.078780 }  // 🏆 ARRIVÉE exacte
+            ];
+            
+            // 🎯 Limites exactes avec vos coordonnées
+            const minLat = 42.229974;  // Votre départ
+            const maxLat = 42.349701;  // Votre arrivée
+            const minLon = -71.518018; // Votre départ
+            const maxLon = -71.078780; // Votre arrivée
+            
+            // Convertir en coordonnées SVG
+            const svgCoords = waypoints.map(point => {
+                const x = 100 + ((point.lon - minLon) / (maxLon - minLon)) * 800;
+                const y = 100 + ((maxLat - point.lat) / (maxLat - minLat)) * 400;
+                return { x: Math.round(x), y: Math.round(y) };
+            });
+            
+            // Créer le chemin SVG
+            let pathData = `M ${svgCoords[0].x} ${svgCoords[0].y}`;
+            for (let i = 1; i < svgCoords.length; i++) {
+                pathData += ` L ${svgCoords[i].x} ${svgCoords[i].y}`;
+            }
+            
+            // Mettre à jour le tracé
+            const routePath = document.getElementById('marathon-route');
+            routePath.setAttribute('d', pathData);
+            
+            // Positionner les marqueurs
+            updateMarkerPositions({
+                startPoint: svgCoords[0],
+                endPoint: svgCoords[svgCoords.length - 1]
+            });
+            
+            console.log('✅ Boston Marathon path created with EXACT coordinates');
+            console.log(`🏁 Start: ${waypoints[0].lat}, ${waypoints[0].lon}`);
+            console.log(`🏆 Finish: ${waypoints[waypoints.length-1].lat}, ${waypoints[waypoints.length-1].lon}`);
+        }
+
         // Function to convert GPS coordinates to SVG path
         function convertGPSToSVG(coordinates, svgWidth = 1000, svgHeight = 600) {
             if (!coordinates || coordinates.length === 0) return '';
             
-            // Find bounding box
-            const lats = coordinates.map(c => c.lat);
-            const lons = coordinates.map(c => c.lon);
+            const minLat = 42.229974;
+            const maxLat = 42.349701;
+            const minLon = -71.518018;
+            const maxLon = -71.078780;
             
-            const minLat = Math.min(...lats);
-            const maxLat = Math.max(...lats);
-            const minLon = Math.min(...lons);
-            const maxLon = Math.max(...lons);
+            // 🎯 AUGMENTER le padding pour réduire la taille du tracé
+            const padding = 200;  // ⬅️ AUGMENTEZ (était 100)
             
-            // Add more padding to "zoom out"
-            const padding = 100; // Augmenté de 50 à 100
-            
-            // Add extra margin to the bounds (zoom out effect)
-            const latRange = maxLat - minLat;
-            const lonRange = maxLon - minLon;
-            const zoomOutFactor = 0.2; // 20% de marge supplémentaire
-            
-            const expandedMinLat = minLat - (latRange * zoomOutFactor);
-            const expandedMaxLat = maxLat + (latRange * zoomOutFactor);
-            const expandedMinLon = minLon - (lonRange * zoomOutFactor);
-            const expandedMaxLon = maxLon + (lonRange * zoomOutFactor);
-            
-            // Convert to SVG coordinates with expanded bounds
             const svgCoords = coordinates.map(coord => {
-                const x = padding + ((coord.lon - expandedMinLon) / (expandedMaxLon - expandedMinLon)) * (svgWidth - 2 * padding);
-                const y = padding + ((expandedMaxLat - coord.lat) / (expandedMaxLat - expandedMinLat)) * (svgHeight - 2 * padding);
+                const x = padding + ((coord.lon - minLon) / (maxLon - minLon)) * (svgWidth - 2 * padding);
+                const y = padding + ((maxLat - coord.lat) / (maxLat - minLat)) * (svgHeight - 2 * padding);
                 return { x: Math.round(x), y: Math.round(y) };
             });
             
-            // Create SVG path
+            // Reste du code identique...
             let pathData = `M ${svgCoords[0].x} ${svgCoords[0].y}`;
-            
-            // Simplify path (take every Nth point to reduce complexity)
             const simplificationFactor = Math.max(1, Math.floor(svgCoords.length / 200));
             
             for (let i = simplificationFactor; i < svgCoords.length; i += simplificationFactor) {
@@ -444,6 +496,67 @@
             
             return { pathData, startPoint: svgCoords[0], endPoint: svgCoords[svgCoords.length - 1] };
         }
+
+        function addMapBackground() {
+            console.log('🗺️ Adding Google Maps background...');
+            
+            const svg = document.querySelector('.route-svg');
+            
+            // Créer les éléments SVG nécessaires
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            const pattern = document.createElementNS('http://www.w3.org/2000/svg', 'pattern');
+            const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+            const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            
+            // Configuration du pattern
+            pattern.setAttribute('id', 'map-background');
+            pattern.setAttribute('patternUnits', 'userSpaceOnUse');
+            pattern.setAttribute('width', '1000');
+            pattern.setAttribute('height', '600');
+            
+            // 🎯 Configuration de l'image Google Maps
+            image.setAttribute('href', 'boston-marathon-map.jpg'); // ← VOTRE IMAGE
+            image.setAttribute('x', '0');
+            image.setAttribute('y', '0');
+            image.setAttribute('width', '1000');
+            image.setAttribute('height', '600');
+            image.setAttribute('opacity', '0.8'); // Légèrement transparent
+            image.setAttribute('preserveAspectRatio', 'xMidYMid slice'); // Remplit tout l'espace
+            
+            // Configuration du rectangle de fond
+            rect.setAttribute('width', '1000');
+            rect.setAttribute('height', '600');
+            rect.setAttribute('fill', 'url(#map-background)');
+            rect.setAttribute('id', 'background-rect');
+            
+            // Gestion du chargement d'image
+            image.addEventListener('load', function() {
+                console.log('✅ Google Maps background loaded successfully!');
+                const loading = document.getElementById('mapLoading');
+                if (loading) loading.style.display = 'none';
+            });
+            
+            image.addEventListener('error', function() {
+                console.log('❌ Failed to load Google Maps image');
+                rect.setAttribute('fill', '#e8f4f8'); // Couleur de fallback
+                const loading = document.getElementById('mapLoading');
+                if (loading) {
+                    loading.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Image not found - Check filename';
+                    setTimeout(() => loading.style.display = 'none', 3000);
+                }
+            });
+            
+            // Assembler les éléments
+            pattern.appendChild(image);
+            defs.appendChild(pattern);
+            
+            // Insérer au début du SVG
+            svg.insertBefore(defs, svg.firstChild);
+            svg.insertBefore(rect, svg.querySelector('#marathon-route'));
+            
+            console.log('🗺️ Google Maps background elements added to SVG');
+        }
+
         function updateMarkerPositions(result) {
             // Update start marker position based on actual start point
             const startMarker = document.querySelector('.start-marker');
@@ -534,23 +647,23 @@
         async function initializeRealRoute() {
             console.log('🔄 Loading real GPS route...');
             
+            // 🗺️ Charger la carte Google Maps
+            addMapBackground();
+            
             const coordinates = await loadGPXRoute();
             
             if (coordinates && coordinates.length > 0) {
                 const result = convertGPSToSVG(coordinates);
                 
                 if (result && result.pathData) {
-                    // Update the marathon route path
                     const routePath = document.getElementById('marathon-route');
                     routePath.setAttribute('d', result.pathData);
-                    
-                    // Update markers positions
                     updateMarkerPositions(result);
-                    
                     console.log('✅ Real GPS route loaded successfully!');
                 }
             } else {
-                console.log('⚠️ GPS data not available, keeping empty path');
+                console.log('⚠️ GPS data not available, using default path');
+                createDefaultPath();
             }
         }
         function goToDashboard() {
