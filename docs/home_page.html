@@ -103,6 +103,13 @@
             dominant-baseline: central;
             pointer-events: none;
         }
+
+        .start-marker:hover {
+            background: #059669 !important;
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+        }
         
         @keyframes moveRunner {
             from {
@@ -126,7 +133,7 @@
             border-radius: 15px;
             max-width: 300px;
         }
-        
+
         .location-marker {
             position: absolute;
             background: white;
@@ -318,7 +325,7 @@
         </svg>
         
         <!-- Marqueurs de lieu -->
-        <div class="location-marker start-marker">
+        <div class="location-marker start-marker" onclick="restartRace()" style="cursor: pointer;">
             <i class="fas fa-play mr-2"></i>
             START - Hopkinton
         </div>
@@ -453,6 +460,75 @@
                 finishMarker.style.top = `${(result.endPoint.y / 600) * 100}%`;
                 console.log('🏁 Finish marker positioned at:', result.endPoint);
             }
+        }
+        function restartRace() {
+            console.log('🏁 Restarting race simulation...');
+            
+            // Get all runner groups
+            const runnerGroups = document.querySelectorAll('.runner-group');
+            
+            runnerGroups.forEach(group => {
+                const circle = group.querySelector('.runner');
+                const text = group.querySelector('.runner-label');
+                
+                // Get the level for timing
+                const level = group.getAttribute('data-level');
+                let duration;
+                
+                switch(level) {
+                    case 'Débutant': duration = 30; break;
+                    case 'Intermédiaire': duration = 22.5; break;
+                    case 'Avancé': duration = 17.5; break;
+                    case 'Elite': duration = 12.5; break;
+                    default: duration = 25;
+                }
+                
+                // Remove existing animations
+                const existingCircleAnimation = circle.querySelector('animateMotion');
+                const existingTextAnimation = text.querySelector('animateMotion');
+                
+                if (existingCircleAnimation) {
+                    circle.removeChild(existingCircleAnimation);
+                }
+                if (existingTextAnimation) {
+                    text.removeChild(existingTextAnimation);
+                }
+                
+                // Force a reflow to ensure DOM changes are applied
+                circle.offsetHeight;
+                
+                // Create new animations with restart
+                setTimeout(() => {
+                    // Create new animation for circle
+                    const newCircleAnimation = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                    newCircleAnimation.setAttribute('dur', duration + 's');
+                    newCircleAnimation.setAttribute('repeatCount', 'indefinite');
+                    newCircleAnimation.setAttribute('restart', 'always');
+                    
+                    const circleMpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+                    circleMpath.setAttribute('href', '#marathon-route');
+                    newCircleAnimation.appendChild(circleMpath);
+                    circle.appendChild(newCircleAnimation);
+                    
+                    // Create new animation for text
+                    const newTextAnimation = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                    newTextAnimation.setAttribute('dur', duration + 's');
+                    newTextAnimation.setAttribute('repeatCount', 'indefinite');
+                    newTextAnimation.setAttribute('restart', 'always');
+                    
+                    const textMpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+                    textMpath.setAttribute('href', '#marathon-route');
+                    newTextAnimation.appendChild(textMpath);
+                    text.appendChild(newTextAnimation);
+                    
+                    // Force restart by calling beginElement
+                    newCircleAnimation.beginElement();
+                    newTextAnimation.beginElement();
+                    
+                }, 50); // Small delay to ensure DOM updates
+            });
+            
+            console.log('✅ Race simulation restarted!');
         }
         // Initialize real GPS route
         async function initializeRealRoute() {
