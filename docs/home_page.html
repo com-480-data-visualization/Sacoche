@@ -102,18 +102,17 @@
             border-radius: 20px;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translate(-50%, -50%); /* Centre le marqueur sur la position */
+            white-space: nowrap; /* Évite le retour à la ligne */
+            z-index: 10;
         }
-        
+
         .start-marker {
-            top: 40%;
-            left: 8%;
             background: #10b981;
             color: white;
         }
-        
+
         .finish-marker {
-            top: 30%;
-            right: 8%;
             background: #ef4444;
             color: white;
         }
@@ -355,6 +354,111 @@
     </div>
     
     <script>
+        // Function to load and parse GPX file
+        async function loadGPXRoute() {
+            try {
+                const response = await fetch('boston-marathon.gpx'); // Remplacez par le nom de votre fichier
+                const gpxText = await response.text();
+                
+                // Parse GPX XML
+                const parser = new DOMParser();
+                const gpxXML = parser.parseFromString(gpxText, 'text/xml');
+                
+                // Extract coordinates from GPX
+                const trackPoints = gpxXML.querySelectorAll('trkpt');
+                const coordinates = [];
+                
+                trackPoints.forEach(point => {
+                    const lat = parseFloat(point.getAttribute('lat'));
+                    const lon = parseFloat(point.getAttribute('lon'));
+                    coordinates.push({ lat, lon });
+                });
+                
+                console.log(`Loaded ${coordinates.length} GPS points`);
+                return coordinates;
+                
+            } catch (error) {
+                console.error('Error loading GPX file:', error);
+                return null;
+            }
+        }
+
+        // Function to convert GPS coordinates to SVG path
+        function convertGPSToSVG(coordinates, svgWidth = 1000, svgHeight = 600) {
+            if (!coordinates || coordinates.length === 0) return '';
+            
+            // Find bounding box
+            const lats = coordinates.map(c => c.lat);
+            const lons = coordinates.map(c => c.lon);
+            
+            const minLat = Math.min(...lats);
+            const maxLat = Math.max(...lats);
+            const minLon = Math.min(...lons);
+            const maxLon = Math.max(...lons);
+            
+            // Add more padding to "zoom out"
+            const padding = 100; // Augmenté de 50 à 100
+            
+            // Add extra margin to the bounds (zoom out effect)
+            const latRange = maxLat - minLat;
+            const lonRange = maxLon - minLon;
+            const zoomOutFactor = 0.2; // 20% de marge supplémentaire
+            
+            const expandedMinLat = minLat - (latRange * zoomOutFactor);
+            const expandedMaxLat = maxLat + (latRange * zoomOutFactor);
+            const expandedMinLon = minLon - (lonRange * zoomOutFactor);
+            const expandedMaxLon = maxLon + (lonRange * zoomOutFactor);
+            
+            // Convert to SVG coordinates with expanded bounds
+            const svgCoords = coordinates.map(coord => {
+                const x = padding + ((coord.lon - expandedMinLon) / (expandedMaxLon - expandedMinLon)) * (svgWidth - 2 * padding);
+                const y = padding + ((expandedMaxLat - coord.lat) / (expandedMaxLat - expandedMinLat)) * (svgHeight - 2 * padding);
+                return { x: Math.round(x), y: Math.round(y) };
+            });
+            
+            // Create SVG path
+            let pathData = `M ${svgCoords[0].x} ${svgCoords[0].y}`;
+            
+            // Simplify path (take every Nth point to reduce complexity)
+            const simplificationFactor = Math.max(1, Math.floor(svgCoords.length / 200));
+            
+            for (let i = simplificationFactor; i < svgCoords.length; i += simplificationFactor) {
+                pathData += ` L ${svgCoords[i].x} ${svgCoords[i].y}`;
+            }
+            
+            return { pathData, startPoint: svgCoords[0], endPoint: svgCoords[svgCoords.length - 1] };
+        }
+
+        // Initialize real GPS route
+        async function initializeRealRoute() {
+            const coordinates = await loadGPXRoute();
+            
+            if (coordinates) {
+                const result = convertGPSToSVG(coordinates);
+                
+                if (result && result.pathData) {
+                    // Update the marathon route path
+                    const routePath = document.getElementById('marathon-route');
+                    routePath.setAttribute('d', result.pathData);
+                    
+                    // Update start marker position based on actual start point
+                    const startMarker = document.querySelector('.start-marker');
+                    startMarker.style.left = `${(result.startPoint.x / 1000) * 100}%`;
+                    startMarker.style.top = `${(result.startPoint.y / 600) * 100}%`;
+                    
+                    // Update finish marker position based on actual end point
+                    const finishMarker = document.querySelector('.finish-marker');
+                    finishMarker.style.left = `${(result.endPoint.x / 1000) * 100}%`;
+                    finishMarker.style.top = `${(result.endPoint.y / 600) * 100}%`;
+                    
+                    console.log('✅ Real GPS route loaded successfully!');
+                    console.log('Start point:', result.startPoint);
+                    console.log('End point:', result.endPoint);
+                }
+            } else {
+                console.log('⚠️ Using fallback route design');
+            }
+        }
         function goToDashboard() {
             window.location.href = 'stats.html';
         }
@@ -365,7 +469,11 @@
         }
         
         // Animation automatique en boucle et gestion des clics
+        // Animation automatique en boucle et gestion des clics
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize real GPS route first
+            initializeRealRoute();
+            
             const runnerGroups = document.querySelectorAll('.runner-group');
             const tooltip = document.getElementById('tooltip');
             
