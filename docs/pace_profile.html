@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Marathon - Pace Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .back-btn i {
+            margin-right: 8px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .calculator-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .input-panel {
+            flex: 0 0 350px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            height: fit-content;
+        }
+
+        .results-panel {
+            flex: 1;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            min-height: 500px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .gender-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .gender-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .gender-radio {
+            display: none;
+        }
+
+        .gender-label {
+            display: block;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .gender-radio:checked + .gender-label {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .time-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 15px 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        .time-input-container:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .time-input {
+            border: none;
+            outline: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            width: 60px;
+            color: #333;
+        }
+
+        .time-separator {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .calculate-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .results-header h2 {
+            color: #333;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        .target-time {
+            color: #667eea;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .pace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pace-segment {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pace-segment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pace-segment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pace-segment:hover::before {
+            opacity: 1;
+        }
+
+        .segment-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .segment-pace {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            position: relative;
+            z-index: 1;
+        }
+
+        .segment-distance {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            padding: 60px 20px;
+        }
+
+        .no-results i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .info-banner {
+            background: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .marathon-visual {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .marathon-point {
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .marathon-distance {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                flex-direction: column;
+            }
+            
+            .input-panel {
+                flex: none;
+            }
+            
+            .pace-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="home_page.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Home Page
+    </a>
+
+    <div class="container">
+        <h1><i class="fas fa-stopwatch mr-3"></i>Boston Marathon Pace Calculator</h1>
+
+        <div class="calculator-container">
+            <div class="input-panel">
+                <div class="info-banner">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Get personalized pacing strategy based on real Boston Marathon data
+                </div>
+
+                <form id="paceForm">
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-user mr-2"></i>
+                            Gender
+                        </label>
+                        <div class="gender-options">
+                            <div class="gender-option">
+                                <input type="radio" id="male" name="gender" value="Homme" class="gender-radio" required>
+                                <label for="male" class="gender-label">
+                                    <i class="fas fa-mars mr-2"></i>
+                                    Male
+                                </label>
+                            </div>
+                            <div class="gender-option">
+                                <input type="radio" id="female" name="gender" value="Femme" class="gender-radio" required>
+                                <label for="female" class="gender-label">
+                                    <i class="fas fa-venus mr-2"></i>
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-target mr-2"></i>
+                            Target Time (3h10 - 8h00)
+                        </label>
+                        <div class="time-input-container">
+                            <input type="number" id="hours" class="time-input" min="3" max="8" value="4" required>
+                            <span class="time-separator">h</span>
+                            <input type="number" id="minutes" class="time-input" min="0" max="59" step="5" value="0" required>
+                            <span class="time-separator">min</span>
+                        </div>
+                        <small style="color: #666; margin-top: 5px; display: block;">
+                            <i class="fas fa-clock mr-1"></i>
+                            Minutes in 5-minute increments (0, 5, 10, 15, etc.)
+                        </small>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate My Paces
+                    </button>
+                </form>
+            </div>
+
+            <div class="results-panel">
+                <div id="results-content">
+                    <div class="no-results">
+                        <i class="fas fa-running"></i>
+                        <h3>Ready to Plan Your Race?</h3>
+                        <p>Select your gender and target time to get personalized pacing recommendations based on real Boston Marathon performance data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let paceData = null;
+
+        // Load pace data from JSON file
+        async function loadPaceData() {
+            try {
+                console.log('🔄 Loading pace data...');
+                const response = await fetch('segment_pace_profiles_all_years.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                paceData = await response.json();
+                console.log('✅ Pace data loaded successfully');
+                return paceData;
+                
+            } catch (error) {
+                console.error('❌ Error loading pace data:', error);
+                showError(`Failed to load pace data: ${error.message}`);
+                return null;
+            }
+        }
+
+        // Convert time to seconds for easier calculation
+        function timeToSeconds(hours, minutes) {
+            return hours * 3600 + minutes * 60;
+        }
+
+        // Convert seconds back to time format
+        function secondsToTimeString(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            return `${hours}:${minutes.toString().padStart(2, '0')}:00`;
+        }
+
+        // Find the closest available time in the data
+        function findClosestTime(targetSeconds, gender) {
+            if (!paceData || !paceData[gender]) {
+                return null;
+            }
+
+            const availableTimes = Object.keys(paceData[gender]);
+            let closestTime = null;
+            let minDifference = Infinity;
+
+            availableTimes.forEach(timeKey => {
+                const [minutes, seconds] = timeKey.split(':').map(Number);
+                const totalSeconds = minutes * 60 + seconds;
+                const difference = Math.abs(totalSeconds - targetSeconds);
+
+                if (difference < minDifference) {
+                    minDifference = difference;
+                    closestTime = timeKey;
+                }
+            });
+
+            return closestTime;
+        }
+
+        // Display the pace results
+        function displayResults(gender, targetTime, paces) {
+            const resultsContent = document.getElementById('results-content');
+            
+            const segments = [
+                { key: '5-10km', title: 'KM 5-10', distance: '5 km' },
+                { key: '10-15km', title: 'KM 10-15', distance: '5 km' },
+                { key: '15-20km', title: 'KM 15-20', distance: '5 km' },
+                { key: '20-25km', title: 'KM 20-25', distance: '5 km' },
+                { key: '25-30km', title: 'KM 25-30', distance: '5 km' },
+                { key: '30-35km', title: 'KM 30-35', distance: '5 km' },
+                { key: '35-40km', title: 'KM 35-40', distance: '5 km' },
+                { key: '40-42km', title: 'KM 40-42', distance: '2.195 km' }
+            ];
+
+            resultsContent.innerHTML = `
+                <div class="results-header">
+                    <h2><i class="fas fa-trophy mr-2"></i>Your Pacing Strategy</h2>
+                    <div class="target-time">${targetTime} Target Time</div>
+                    <div style="font-size: 14px; color: #666; margin-top: 10px;">
+                        ${gender === 'Homme' ? 'Male' : 'Female'} • Based on Boston Marathon data
+                    </div>
+                </div>
+
+                <div class="marathon-visual">
+                    <div class="marathon-point">
+                        <i class="fas fa-play"></i>
+                        <div class="marathon-distance">START</div>
+                    </div>
+                    <div class="marathon-point">
+                        <i class="fas fa-mountain"></i>
+                        <div class="marathon-distance">HILLS</div>
+                    </div>
+                    <div class="marathon-point">
+                        <i class="fas fa-fire"></i>
+                        <div class="marathon-distance">WALL</div>
+                    </div>
+                    <div class="marathon-point">
+                        <i class="fas fa-flag-checkered"></i>
+                        <div class="marathon-distance">FINISH</div>
+                    </div>
+                </div>
+
+                <div class="pace-grid">
+                    ${segments.map(segment => `
+                        <div class="pace-segment">
+                            <div class="segment-title">
+                                <i class="fas fa-route mr-1"></i>
+                                ${segment.title}
+                            </div>
+                            <div class="segment-pace">${paces[segment.key] || 'N/A'}</div>
+                            <div class="segment-distance">${segment.distance}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 15px; text-align: center;">
+                    <i class="fas fa-lightbulb mr-2" style="color: #667eea;"></i>
+                    <strong>Pro Tip:</strong> These paces are based on successful Boston Marathon finishers. 
+                    Start conservatively and adjust based on how you feel during the race!
+                </div>
+            `;
+        }
+
+        // Show error message
+        function showError(message) {
+            const resultsContent = document.getElementById('results-content');
+            resultsContent.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    ${message}
+                </div>
+                <div class="no-results">
+                    <p>Please ensure the 'segment_pace_profiles_all_years.json' file is available.</p>
+                </div>
+            `;
+        }
+
+        // Show loading state
+        function showLoading() {
+            const resultsContent = document.getElementById('results-content');
+            resultsContent.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Calculating your personalized paces...</p>
+                </div>
+            `;
+        }
+
+        // Handle form submission
+        document.getElementById('paceForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            showLoading();
+            
+            // Get form values
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const hours = parseInt(document.getElementById('hours').value);
+            const minutes = parseInt(document.getElementById('minutes').value);
+            
+            // Validate time range
+            const targetSeconds = timeToSeconds(hours, minutes);
+            const minSeconds = timeToSeconds(3, 10); // 3h10
+            const maxSeconds = timeToSeconds(8, 0);  // 8h00
+            
+            if (targetSeconds < minSeconds || targetSeconds > maxSeconds) {
+                showError('Please enter a time between 3h10 and 8h00');
+                return;
+            }
+            
+            // Validate minutes increment
+            if (minutes % 5 !== 0) {
+                showError('Please use 5-minute increments for minutes (0, 5, 10, 15, etc.)');
+                return;
+            }
+            
+            // Load data if not already loaded
+            if (!paceData) {
+                await loadPaceData();
+                if (!paceData) return;
+            }
+            
+            // Find closest time in data
+            const targetTimeKey = findClosestTime(targetSeconds, gender);
+            
+            if (!targetTimeKey || !paceData[gender][targetTimeKey]) {
+                showError('No pace data available for this time and gender combination');
+                return;
+            }
+            
+            // Get pace data
+            const paces = paceData[gender][targetTimeKey];
+            const targetTimeString = secondsToTimeString(targetSeconds);
+            
+            // Display results
+            displayResults(gender, targetTimeString, paces);
+            
+            console.log('✅ Pace calculation completed', {
+                gender,
+                targetTime: targetTimeString,
+                paces
+            });
+        });
+
+        // Validate time inputs
+        document.getElementById('hours').addEventListener('change', function() {
+            const hours = parseInt(this.value);
+            if (hours < 3) this.value = 3;
+            if (hours > 8) this.value = 8;
+        });
+
+        document.getElementById('minutes').addEventListener('change', function() {
+            const minutes = parseInt(this.value);
+            // Round to nearest 5
+            const rounded = Math.round(minutes / 5) * 5;
+            this.value = Math.max(0, Math.min(55, rounded));
+        });
+
+        // Load pace data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Pace calculator loaded');
+            loadPaceData();
+        });
+    </script>
+</body>
+</html>
