@@ -280,12 +280,10 @@
         
         <div class="filter-section">
           <strong>Runner Level</strong>
-          <select id="levelSelect" multiple size="4">
-            <option value="Débutant" selected>🥉 Débutant</option>
-            <option value="Intermédiaire" selected>🥈 Intermédiaire</option>
-            <option value="Avancé" selected>🥇 Avancé</option>
-            <option value="Elite" selected>🏆 Elite</option>
-          </select>
+          <label><input type="checkbox" name="level" value="Débutant" checked> 🥉 Débutant</label>
+          <label><input type="checkbox" name="level" value="Intermédiaire" checked> 🥈 Intermédiaire</label>
+          <label><input type="checkbox" name="level" value="Avancé" checked> 🥇 Avancé</label>
+          <label><input type="checkbox" name="level" value="Elite" checked> 🏆 Elite</label>
         </div>
         
         <div>
@@ -367,12 +365,12 @@
       // Apply runner level filter
       if (params.runnerLevel) {
         // First deselect all levels
-        document.querySelectorAll('#levelSelect option').forEach(opt => opt.selected = false);
+        document.querySelectorAll('input[name="level"]').forEach(cb => cb.checked = false);
         
         // Then select the specific level from URL
-        const levelOption = document.querySelector(`#levelSelect option[value="${params.runnerLevel}"]`);
-        if (levelOption) {
-          levelOption.selected = true;
+        const levelCheckbox = document.querySelector(`input[name="level"][value="${params.runnerLevel}"]`);
+        if (levelCheckbox) {
+          levelCheckbox.checked = true;
           filterApplied = true;
           appliedFilters.push(`Level: ${params.runnerLevel}`);
           console.log('✅ Applied runnerLevel filter:', params.runnerLevel);
@@ -429,7 +427,28 @@
         }, 100);
       }
     }
-    
+    // Utility functions for time conversion
+    function timeToSeconds(timeStr) {
+        if (!timeStr || timeStr === '-') return 0;
+        
+        const parts = timeStr.split(':');
+        if (parts.length === 3) {
+          const hours = parseInt(parts[0]) || 0;
+          const minutes = parseInt(parts[1]) || 0;
+          const seconds = parseInt(parts[2]) || 0;
+          return hours * 3600 + minutes * 60 + seconds;
+        }
+        return 0;
+      }
+
+      function secondsToTime(totalSeconds) {
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+        
+        return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
     // Load data from JSON file
     async function loadMarathonData() {
       try {
@@ -558,7 +577,7 @@
     function resetFilters() {
       document.getElementById("ageRangeSlider").value = 6;
       document.querySelectorAll('input[name="gender"]').forEach(cb => cb.checked = true);
-      document.querySelectorAll('#levelSelect option').forEach(opt => opt.selected = true);
+      document.querySelectorAll('input[name="level"]').forEach(cb => cb.checked = true);
       document.getElementById('filterAppliedMessage').style.display = 'none';
       updateAgeRangeDisplay();
       updateDashboard();
@@ -568,7 +587,7 @@
       const selectedYear = document.getElementById("yearSelect").value;
       const selectedAgeRange = parseInt(document.getElementById("ageRangeSlider").value);
       const selectedGenders = Array.from(document.querySelectorAll('input[name="gender"]:checked')).map(cb => parseInt(cb.value));
-      const selectedLevels = Array.from(document.getElementById("levelSelect").selectedOptions).map(opt => opt.value);
+      const selectedLevels = Array.from(document.querySelectorAll('input[name="level"]:checked')).map(cb => cb.value);
       
       console.log('🔍 Filtering data:', {
         year: selectedYear,
@@ -608,18 +627,80 @@
       }
       
       const filteredSegments = getFilteredData();
-      
+
       // Calculate filtered totals
       const filteredRunners = filteredSegments.reduce((sum, seg) => sum + seg.count, 0);
-      
-      // Update summary stats (using global year data)
-      document.getElementById("totalRunnersValue").textContent = yearData.total_runners.toLocaleString();
-      document.getElementById("avgTimeValue").textContent = yearData.mean_time || '-';
-      document.getElementById("fastestTimeValue").textContent = yearData.fastest_time || '-';
-      document.getElementById("slowestTimeValue").textContent = yearData.slowest_time || '-';
-      document.getElementById("medianTimeValue").textContent = yearData.median_time || '-';
+
+      // Calculate filtered statistics
+      let filteredStats = {
+        totalRunners: filteredRunners,
+        avgTime: '-',
+        fastestTime: '-',
+        slowestTime: '-',
+        medianTime: '-'
+      };
+
+      if (filteredSegments.length > 0 && filteredRunners > 0) {
+        // Calculate weighted average time
+        let totalWeightedSeconds = 0;
+        let allTimes = [];
+        let fastestSeconds = Infinity;
+        let slowestSeconds = 0;
+        
+        filteredSegments.forEach(seg => {
+          if (seg.mean_time && seg.count > 0) {
+            const meanSeconds = timeToSeconds(seg.mean_time);
+            totalWeightedSeconds += meanSeconds * seg.count;
+            
+            // Collect all individual times for median calculation
+            for (let i = 0; i < seg.count; i++) {
+              allTimes.push(meanSeconds);
+            }
+          }
+          
+          if (seg.fastest_time) {
+            const fastestSeg = timeToSeconds(seg.fastest_time);
+            fastestSeconds = Math.min(fastestSeconds, fastestSeg);
+          }
+          
+          if (seg.slowest_time) {
+            const slowestSeg = timeToSeconds(seg.slowest_time);
+            slowestSeconds = Math.max(slowestSeconds, slowestSeg);
+          }
+        });
+        
+        if (totalWeightedSeconds > 0) {
+          const avgSeconds = totalWeightedSeconds / filteredRunners;
+          filteredStats.avgTime = secondsToTime(avgSeconds);
+        }
+        
+        if (fastestSeconds !== Infinity) {
+          filteredStats.fastestTime = secondsToTime(fastestSeconds);
+        }
+        
+        if (slowestSeconds > 0) {
+          filteredStats.slowestTime = secondsToTime(slowestSeconds);
+        }
+        
+        // Calculate median
+        if (allTimes.length > 0) {
+          allTimes.sort((a, b) => a - b);
+          const medianIndex = Math.floor(allTimes.length / 2);
+          const medianSeconds = allTimes.length % 2 === 0 
+            ? (allTimes[medianIndex - 1] + allTimes[medianIndex]) / 2
+            : allTimes[medianIndex];
+          filteredStats.medianTime = secondsToTime(medianSeconds);
+        }
+      }
+
+      // Update summary stats with filtered data
+      document.getElementById("totalRunnersValue").textContent = filteredStats.totalRunners.toLocaleString();
+      document.getElementById("avgTimeValue").textContent = filteredStats.avgTime;
+      document.getElementById("fastestTimeValue").textContent = filteredStats.fastestTime;
+      document.getElementById("slowestTimeValue").textContent = filteredStats.slowestTime;
+      document.getElementById("medianTimeValue").textContent = filteredStats.medianTime;
       document.getElementById("completionRateValue").textContent = ((yearData.completion_rate || 1) * 100).toFixed(1) + "%";
-      
+
       // Update filtered info
       document.getElementById('filteredInfo').style.display = 'block';
       document.getElementById('filteredCount').textContent = `${filteredSegments.length} segments`;
