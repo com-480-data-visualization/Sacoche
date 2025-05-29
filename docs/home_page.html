@@ -135,8 +135,8 @@
         
         .info-panel {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 70px;
+            left: 40px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -171,8 +171,8 @@
         
         .legend {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
+            bottom: 5px;
+            right: 40px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -219,16 +219,19 @@
         
         .dashboard-btn {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: 120px;
+            left: 450px;
             background: #3b82f6;
             color: white;
-            padding: 12px 24px;
+            padding: 16px 32px;      /* ← Augmentez (était 12px 24px) */
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 16px;         /* ← Ajoutez pour augmenter la taille du texte */
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            min-width: 200px;        /* ← Ajoutez pour définir une largeur minimale */
+            text-align: center;      /* ← Ajoutez pour centrer le texte */
         }
         
         .dashboard-btn:hover {
@@ -252,8 +255,8 @@
         
         .click-instruction {
             position: absolute;
-            top: 100px;
-            right: 20px;
+            top: 70px;
+            right: 40px;
             background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 10px 15px;
@@ -268,7 +271,7 @@
     <div class="marathon-container">
         <div class="title-banner">
             <i class="fas fa-running mr-3"></i>
-            Boston Marathon - Interactive Itinerary
+            Boston Marathon Itinerary
             <i class="fas fa-running ml-3"></i>
         </div>
         
@@ -380,7 +383,7 @@
         <!-- Bouton vers le dashboard -->
         <a href="#" class="dashboard-btn" onclick="goToDashboard()">
             <i class="fas fa-chart-bar mr-2"></i>
-            See statistics
+            See general statistics
         </a>
         
         <!-- Tooltip -->
