@@ -7,13 +7,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <style>
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      margin: 0; 
-      padding: 20px; 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-soft);
+      margin: 0;
+      padding: 20px;
       min-height: 100vh;
     }
+
     
     .back-btn {
       position: fixed;
@@ -48,8 +49,8 @@
 
     h1 { 
       text-align: center; 
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      color: #4ca1dd;
+      /*text-shadow: 2px 2px 4px rgba(0,0,0,0.3);*/
       font-size: 2.5em;
       margin-bottom: 10px;
     }
@@ -65,13 +66,27 @@
       flex: 0 0 280px; 
     }
     
-    .card { 
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      padding: 20px; 
-      border-radius: 15px; 
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
+    :root {
+      /* your new soft cream background */
+      --bg-soft: #F9F7F1;
+      --card-padding: 12px;
+      --card-gap:     20px;
+    }
+
+    /* make *every* .card use that color and drop its shadow/border */
+    .card {
+      background-color: var(--bg-soft) !important;
+      box-shadow: none           !important;
+      border: none               !important;
+        /* shrink each block a little */
+      padding: var(--card-padding) !important;
+      /* give them breathing room */
+      margin-bottom: var(--card-gap)   !important;
+      
+      /* optional: constrain their width so they don’t stretch full‐width */
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .card h2 { 
@@ -263,6 +278,41 @@
       border-color: #667eea;
       box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
     }
+
+    /* right in your <style> block */
+    #splitSpeedCard {
+      /* fix the card’s height */
+      height: 400px;
+      position: relative;
+        /* add extra padding at the top: */
+      padding-top: 24px !important;        /* so absolutely-positioned children anchor here */
+    }
+
+
+    #splitSpeedChart {
+      position: absolute;
+      top: 60px;        /* ← push the chart down below the title/divider */
+      left: 25px;
+      right: 10px;
+      bottom: 0;        /* ← still fill to the bottom of the card */
+      width: 100% !important;
+      /* remove height:100% if you like; top+bottom anchoring is enough */
+    }
+
+    #statsPanel,
+    #splitSpeedCard,
+    #chartCard,
+    #filterPanel {
+      background-color: var(--bg-soft);
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    input, select, button {
+      background-color: #fff; /* keep these white for contrast */
+      /* or you could also give them var(--bg-soft) + a border */
+    }
+
   </style>
 </head>
 <body>
@@ -311,6 +361,7 @@
           <label><input type="checkbox" name="level" value="Elite" checked> 🏆 Elite</label>
         </div>
 
+
         <div class="filter-section">
           <strong>📅 Year</strong>
           <select id="yearSelect" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ddd;">
@@ -357,13 +408,19 @@
         <h2>📈 Performance by Age Group & Level</h2>
         <canvas id="finishTimeChart"></canvas>
       </div>
+            <!-- ─── Split-Speed Evolution Chart ─── -->
+      <div id="splitSpeedCard" class="card" style="margin-top:20px;">
+        <h2>⏱️ Split Speed Evolution</h2>
+        <canvas id="splitSpeedChart"></canvas>
+      </div>
     </div>
   </div>
 
   <script>
     let marathonStats = {};
     let currentChart = null;
-    
+    let splitStats = null;
+    let currentSplitChart = null;
     // Age range mappings
     const ageRanges = ["18-29", "30-39", "40-49", "50-59", "60-69", "70+"];
     
@@ -728,7 +785,7 @@
             
       // Update chart
       updateChart(filteredSegments);
-      
+      updateSplitDashboard();
       console.log(`📈 Dashboard updated for ${selectedYear}: ${filteredSegments.length} segments, ${filteredRunners} runners`);
     }
 
@@ -871,10 +928,189 @@
       console.log('📈 Chart updated with', segments.length, 'segments');
     }
 
+        // ─── Load the split-time JSON ───
+    async function loadSplitTimeData() {
+      try {
+        const resp = await fetch("stats_split_time.json");
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        splitStats = await resp.json();
+        console.log("✅ Split-time data loaded:", splitStats);
+        updateSplitDashboard();
+      } catch (err) {
+        console.error("❌ Error loading split-time data:", err);
+      }
+    }
+
+    // ─── Filter split-time data by the same UI filters ───
+    function getSplitFilteredData() {
+      if (!splitStats) return [];
+      const year = document.getElementById("yearSelect").value;
+      const allSegs = (splitStats.years[year] || []);
+      const ageIdx   = +document.getElementById("ageRangeSlider").value;
+      const ageVal   = ageIdx === ageRanges.length ? null : ageRanges[ageIdx];
+      const genders  = Array.from(document.querySelectorAll('input[name="gender"]:checked'))
+                            .map(cb => +cb.value);
+      const levels   = Array.from(document.querySelectorAll('input[name="level"]:checked'))
+                            .map(cb => cb.value);
+
+      return allSegs.filter(s => {
+        const ageOK    = !ageVal || s.age_range === ageVal;
+        const genderOK = genders.includes(s.gender);
+        const levelOK  = levels.includes(s.level);
+        return ageOK && genderOK && levelOK && s.count > 0;
+      });
+    }
+
+    // 3) Revamped updateSplitChart
+    function updateSplitChart(datasets, labels) {
+      const canvas = document.getElementById("splitSpeedChart");
+      const ctx = canvas.getContext("2d");
+      if (currentSplitChart) currentSplitChart.destroy();
+
+      const chartHeight = canvas.height;
+
+      // build Chart.js datasets with gradients, line styling, markers…
+      const styledDatasets = datasets.map(ds => {
+        const baseColor = levelColors[ds.label];
+        // create a vertical gradient for the fill
+        const gradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
+        gradient.addColorStop(0, hexToRgba(baseColor, 0.1));
+        gradient.addColorStop(1, hexToRgba(baseColor, 0.02));
+        return {
+          label: ds.label,
+          data: ds.data,
+          fill: true,                     // fill under the line
+          backgroundColor: gradient,
+          borderColor: baseColor,
+          borderWidth: 3,                 // nice thick line
+          tension: 0.4,                   // smoother curves
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointBackgroundColor: baseColor + '80',   // white center
+          pointBorderColor: baseColor,
+          pointBorderWidth: 2
+        };
+      });
+
+      currentSplitChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: styledDatasets
+        },
+        options: {
+          layout: {
+            padding: { top: 20, right: 20, bottom: 10, left: 10 }
+          },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                usePointStyle: true,
+                pointStyle: 'circle',
+                padding: 20,
+                boxWidth: 50,
+                font: { size: 14 }
+              }
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor: 'rgba(0,0,0,0.7)',
+              titleFont: { size: 14 },
+              bodyFont: { size: 12 },
+              padding: 10,
+              cornerRadius: 4
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Segment (km)', font: { size: 14 } },
+              ticks: { color: '#555', font: { size: 12 } },
+              grid: { display: false }
+            },
+            y: {
+              title: { display: true, text: 'Speed (km/h)', font: { size: 14 } },
+              ticks: { color: '#555', font: { size: 12 } },
+              grid: {
+                color: 'rgba(0,0,0,0.05)',
+                drawBorder: false
+              }
+            }
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false
+          },
+          maintainAspectRatio: false,
+          responsive: true
+        }
+      });
+    }
+
+    const levelColors = {
+      "Elite":         "#F87171",  // red
+      "Advanced":      "#FBBF24",  // gold
+      "Intermediate":  "#60A5FA",  // blue
+      "Beginner":      "#4ADE80"   // green
+    };
+
+    // 2) Utility to make an RGBA from a hex
+    function hexToRgba(hex, alpha) {
+      const bigint = parseInt(hex.slice(1), 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    function updateSplitDashboard() {
+      const segs = getSplitFilteredData();
+      if (!segs.length) {
+        if (currentSplitChart) currentSplitChart.destroy();
+        return;
+      }
+
+      const labels = splitStats.segment_labels;
+
+      // group by level
+      const byLevel = segs.reduce((acc, s) => {
+        acc[s.level] = acc[s.level] || [];
+        acc[s.level].push(s);
+        return acc;
+      }, {});
+
+      // build one dataset per level
+      const datasets = Object.entries(byLevel).map(([level, group]) => {
+        const total = group.reduce((sum, g) => sum + g.count, 0);
+        const data  = labels.map((_, i) => {
+          const sumSpeeds = group.reduce((a, g) => a + g.speeds[i] * g.count, 0);
+          return +(sumSpeeds / total).toFixed(2);
+        });
+        return {
+          label: level,
+          data: data,
+          fill: false,
+          tension: 0.2,
+          pointRadius: 4,
+          borderColor:   levelColors[level],
+          backgroundColor: levelColors[level]
+        };
+      });
+
+      updateSplitChart(datasets, labels);
+    }
+
+
+
+
+
     // Start loading data when page loads
     document.addEventListener('DOMContentLoaded', function() {
       console.log('🚀 Page loaded, starting data load...');
       loadMarathonData();
+      loadSplitTimeData();
+
     });
     
     // Also try to load data immediately in case DOMContentLoaded already fired
