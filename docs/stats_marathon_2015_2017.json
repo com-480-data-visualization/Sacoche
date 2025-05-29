@@ -1,1342 +1,1342 @@
 {
-    "2015": {
-        "total_runners": 26598,
-        "completion_rate": 0.9999624031882096,
-        "mean_time": "3:46:25",
-        "median_time": "3:39:40",
+  "2015": {
+    "total_runners": 26598,
+    "completion_rate": 0.9999624031882096,
+    "mean_time": "3:46:25",
+    "median_time": "3:39:40",
+    "fastest_time": "2:09:17",
+    "slowest_time": "8:06:01",
+    "segments": [
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 672,
+        "mean_time": "3:20:42",
+        "median_time": "3:15:05",
+        "fastest_time": "3:00:00",
+        "slowest_time": "3:59:58"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 57,
+        "mean_time": "5:29:22",
+        "median_time": "5:30:52",
+        "fastest_time": "5:01:05",
+        "slowest_time": "6:13:24"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Elite",
+        "count": 763,
+        "mean_time": "2:48:22",
+        "median_time": "2:50:22",
         "fastest_time": "2:09:17",
-        "slowest_time": "8:06:01",
-        "segments": [
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 672,
-                "mean_time": "3:20:42",
-                "median_time": "3:15:05",
-                "fastest_time": "3:00:00",
-                "slowest_time": "3:59:58"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 57,
-                "mean_time": "5:29:22",
-                "median_time": "5:30:52",
-                "fastest_time": "5:01:05",
-                "slowest_time": "6:13:24"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Elite",
-                "count": 763,
-                "mean_time": "2:48:22",
-                "median_time": "2:50:22",
-                "fastest_time": "2:09:17",
-                "slowest_time": "2:59:58"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 237,
-                "mean_time": "4:25:32",
-                "median_time": "4:23:44",
-                "fastest_time": "4:00:22",
-                "slowest_time": "4:58:31"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 1655,
-                "mean_time": "3:30:36",
-                "median_time": "3:30:14",
-                "fastest_time": "3:00:09",
-                "slowest_time": "3:59:52"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 244,
-                "mean_time": "5:26:45",
-                "median_time": "5:25:31",
-                "fastest_time": "5:00:03",
-                "slowest_time": "6:07:06"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Elite",
-                "count": 66,
-                "mean_time": "2:51:07",
-                "median_time": "2:53:49",
-                "fastest_time": "2:24:59",
-                "slowest_time": "2:59:53"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 604,
-                "mean_time": "4:29:01",
-                "median_time": "4:28:30",
-                "fastest_time": "4:00:04",
-                "slowest_time": "4:59:59"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 1594,
-                "mean_time": "3:18:52",
-                "median_time": "3:13:25",
-                "fastest_time": "3:00:00",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 144,
-                "mean_time": "5:25:19",
-                "median_time": "5:21:44",
-                "fastest_time": "5:00:03",
-                "slowest_time": "7:00:30"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Elite",
-                "count": 1080,
-                "mean_time": "2:51:04",
-                "median_time": "2:53:28",
-                "fastest_time": "2:09:48",
-                "slowest_time": "2:59:59"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 416,
-                "mean_time": "4:25:37",
-                "median_time": "4:24:14",
-                "fastest_time": "4:00:01",
-                "slowest_time": "4:59:52"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 2452,
-                "mean_time": "3:33:24",
-                "median_time": "3:33:29",
-                "fastest_time": "3:00:15",
-                "slowest_time": "3:59:54"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 255,
-                "mean_time": "5:26:54",
-                "median_time": "5:24:23",
-                "fastest_time": "5:00:01",
-                "slowest_time": "6:26:29"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Elite",
-                "count": 59,
-                "mean_time": "2:52:39",
-                "median_time": "2:56:00",
-                "fastest_time": "2:24:55",
-                "slowest_time": "2:59:59"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 669,
-                "mean_time": "4:25:29",
-                "median_time": "4:22:48",
-                "fastest_time": "4:00:04",
-                "slowest_time": "4:59:48"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 3295,
-                "mean_time": "3:23:45",
-                "median_time": "3:21:18",
-                "fastest_time": "3:00:00",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 154,
-                "mean_time": "5:27:38",
-                "median_time": "5:23:39",
-                "fastest_time": "5:00:12",
-                "slowest_time": "6:44:28"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Elite",
-                "count": 550,
-                "mean_time": "2:53:32",
-                "median_time": "2:55:23",
-                "fastest_time": "2:18:44",
-                "slowest_time": "2:59:58"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 595,
-                "mean_time": "4:26:23",
-                "median_time": "4:23:08",
-                "fastest_time": "4:00:04",
-                "slowest_time": "4:59:56"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 2488,
-                "mean_time": "3:41:34",
-                "median_time": "3:42:58",
-                "fastest_time": "3:00:46",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 225,
-                "mean_time": "5:27:02",
-                "median_time": "5:23:47",
-                "fastest_time": "5:00:15",
-                "slowest_time": "6:42:01"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Elite",
-                "count": 21,
-                "mean_time": "2:53:30",
-                "median_time": "2:54:08",
-                "fastest_time": "2:46:44",
-                "slowest_time": "2:59:44"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 1082,
-                "mean_time": "4:20:17",
-                "median_time": "4:16:05",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:58"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 2664,
-                "mean_time": "3:32:41",
-                "median_time": "3:32:42",
-                "fastest_time": "3:00:03",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 187,
-                "mean_time": "5:28:05",
-                "median_time": "5:23:11",
-                "fastest_time": "5:00:04",
-                "slowest_time": "8:00:37"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Elite",
-                "count": 101,
-                "mean_time": "2:55:15",
-                "median_time": "2:56:30",
-                "fastest_time": "2:41:10",
-                "slowest_time": "2:59:59"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 601,
-                "mean_time": "4:23:02",
-                "median_time": "4:20:33",
-                "fastest_time": "4:00:05",
-                "slowest_time": "4:59:36"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 789,
-                "mean_time": "3:46:27",
-                "median_time": "3:48:40",
-                "fastest_time": "3:07:24",
-                "slowest_time": "3:59:55"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 146,
-                "mean_time": "5:25:04",
-                "median_time": "5:20:44",
-                "fastest_time": "5:00:20",
-                "slowest_time": "6:07:50"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Elite",
-                "count": 3,
-                "mean_time": "2:54:19",
-                "median_time": "2:54:03",
-                "fastest_time": "2:52:51",
-                "slowest_time": "2:56:03"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 875,
-                "mean_time": "4:17:52",
-                "median_time": "4:13:58",
-                "fastest_time": "4:00:03",
-                "slowest_time": "4:59:50"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 582,
-                "mean_time": "3:44:54",
-                "median_time": "3:47:58",
-                "fastest_time": "3:01:41",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 127,
-                "mean_time": "5:26:45",
-                "median_time": "5:20:32",
-                "fastest_time": "5:00:29",
-                "slowest_time": "8:06:01"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 592,
-                "mean_time": "4:20:14",
-                "median_time": "4:17:17",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:54"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 39,
-                "mean_time": "3:47:53",
-                "median_time": "3:48:55",
-                "fastest_time": "3:12:51",
-                "slowest_time": "3:59:44"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 60,
-                "mean_time": "5:30:55",
-                "median_time": "5:18:44",
-                "fastest_time": "5:00:06",
-                "slowest_time": "7:59:33"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 262,
-                "mean_time": "4:26:57",
-                "median_time": "4:24:48",
-                "fastest_time": "4:00:17",
-                "slowest_time": "4:59:51"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 23,
-                "mean_time": "3:46:52",
-                "median_time": "3:48:37",
-                "fastest_time": "3:30:33",
-                "slowest_time": "3:59:30"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 50,
-                "mean_time": "5:33:00",
-                "median_time": "5:26:05",
-                "fastest_time": "5:00:00",
-                "slowest_time": "6:56:47"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 96,
-                "mean_time": "4:30:19",
-                "median_time": "4:30:01",
-                "fastest_time": "4:00:57",
-                "slowest_time": "4:59:54"
-            },
-            {
-                "age_range": "70+",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 8,
-                "mean_time": "5:21:43",
-                "median_time": "5:13:05",
-                "fastest_time": "5:02:53",
-                "slowest_time": "5:57:40"
-            },
-            {
-                "age_range": "70+",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 15,
-                "mean_time": "4:38:32",
-                "median_time": "4:40:16",
-                "fastest_time": "4:00:56",
-                "slowest_time": "4:57:55"
-            }
-        ]
-    },
-    "2016": {
-        "total_runners": 26630,
-        "completion_rate": 1.0,
-        "mean_time": "3:55:02",
-        "median_time": "3:48:05",
+        "slowest_time": "2:59:58"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 237,
+        "mean_time": "4:25:32",
+        "median_time": "4:23:44",
+        "fastest_time": "4:00:22",
+        "slowest_time": "4:58:31"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 1655,
+        "mean_time": "3:30:36",
+        "median_time": "3:30:14",
+        "fastest_time": "3:00:09",
+        "slowest_time": "3:59:52"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 244,
+        "mean_time": "5:26:45",
+        "median_time": "5:25:31",
+        "fastest_time": "5:00:03",
+        "slowest_time": "6:07:06"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Elite",
+        "count": 66,
+        "mean_time": "2:51:07",
+        "median_time": "2:53:49",
+        "fastest_time": "2:24:59",
+        "slowest_time": "2:59:53"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 604,
+        "mean_time": "4:29:01",
+        "median_time": "4:28:30",
+        "fastest_time": "4:00:04",
+        "slowest_time": "4:59:59"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 1594,
+        "mean_time": "3:18:52",
+        "median_time": "3:13:25",
+        "fastest_time": "3:00:00",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 144,
+        "mean_time": "5:25:19",
+        "median_time": "5:21:44",
+        "fastest_time": "5:00:03",
+        "slowest_time": "7:00:30"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Elite",
+        "count": 1080,
+        "mean_time": "2:51:04",
+        "median_time": "2:53:28",
+        "fastest_time": "2:09:48",
+        "slowest_time": "2:59:59"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 416,
+        "mean_time": "4:25:37",
+        "median_time": "4:24:14",
+        "fastest_time": "4:00:01",
+        "slowest_time": "4:59:52"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 2452,
+        "mean_time": "3:33:24",
+        "median_time": "3:33:29",
+        "fastest_time": "3:00:15",
+        "slowest_time": "3:59:54"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 255,
+        "mean_time": "5:26:54",
+        "median_time": "5:24:23",
+        "fastest_time": "5:00:01",
+        "slowest_time": "6:26:29"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Elite",
+        "count": 59,
+        "mean_time": "2:52:39",
+        "median_time": "2:56:00",
+        "fastest_time": "2:24:55",
+        "slowest_time": "2:59:59"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 669,
+        "mean_time": "4:25:29",
+        "median_time": "4:22:48",
+        "fastest_time": "4:00:04",
+        "slowest_time": "4:59:48"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 3295,
+        "mean_time": "3:23:45",
+        "median_time": "3:21:18",
+        "fastest_time": "3:00:00",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 154,
+        "mean_time": "5:27:38",
+        "median_time": "5:23:39",
+        "fastest_time": "5:00:12",
+        "slowest_time": "6:44:28"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Elite",
+        "count": 550,
+        "mean_time": "2:53:32",
+        "median_time": "2:55:23",
+        "fastest_time": "2:18:44",
+        "slowest_time": "2:59:58"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 595,
+        "mean_time": "4:26:23",
+        "median_time": "4:23:08",
+        "fastest_time": "4:00:04",
+        "slowest_time": "4:59:56"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 2488,
+        "mean_time": "3:41:34",
+        "median_time": "3:42:58",
+        "fastest_time": "3:00:46",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 225,
+        "mean_time": "5:27:02",
+        "median_time": "5:23:47",
+        "fastest_time": "5:00:15",
+        "slowest_time": "6:42:01"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Elite",
+        "count": 21,
+        "mean_time": "2:53:30",
+        "median_time": "2:54:08",
+        "fastest_time": "2:46:44",
+        "slowest_time": "2:59:44"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 1082,
+        "mean_time": "4:20:17",
+        "median_time": "4:16:05",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:58"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 2664,
+        "mean_time": "3:32:41",
+        "median_time": "3:32:42",
+        "fastest_time": "3:00:03",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 187,
+        "mean_time": "5:28:05",
+        "median_time": "5:23:11",
+        "fastest_time": "5:00:04",
+        "slowest_time": "8:00:37"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Elite",
+        "count": 101,
+        "mean_time": "2:55:15",
+        "median_time": "2:56:30",
+        "fastest_time": "2:41:10",
+        "slowest_time": "2:59:59"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 601,
+        "mean_time": "4:23:02",
+        "median_time": "4:20:33",
+        "fastest_time": "4:00:05",
+        "slowest_time": "4:59:36"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 789,
+        "mean_time": "3:46:27",
+        "median_time": "3:48:40",
+        "fastest_time": "3:07:24",
+        "slowest_time": "3:59:55"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 146,
+        "mean_time": "5:25:04",
+        "median_time": "5:20:44",
+        "fastest_time": "5:00:20",
+        "slowest_time": "6:07:50"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Elite",
+        "count": 3,
+        "mean_time": "2:54:19",
+        "median_time": "2:54:03",
+        "fastest_time": "2:52:51",
+        "slowest_time": "2:56:03"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 875,
+        "mean_time": "4:17:52",
+        "median_time": "4:13:58",
+        "fastest_time": "4:00:03",
+        "slowest_time": "4:59:50"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 582,
+        "mean_time": "3:44:54",
+        "median_time": "3:47:58",
+        "fastest_time": "3:01:41",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 127,
+        "mean_time": "5:26:45",
+        "median_time": "5:20:32",
+        "fastest_time": "5:00:29",
+        "slowest_time": "8:06:01"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 592,
+        "mean_time": "4:20:14",
+        "median_time": "4:17:17",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:54"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 39,
+        "mean_time": "3:47:53",
+        "median_time": "3:48:55",
+        "fastest_time": "3:12:51",
+        "slowest_time": "3:59:44"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 60,
+        "mean_time": "5:30:55",
+        "median_time": "5:18:44",
+        "fastest_time": "5:00:06",
+        "slowest_time": "7:59:33"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 262,
+        "mean_time": "4:26:57",
+        "median_time": "4:24:48",
+        "fastest_time": "4:00:17",
+        "slowest_time": "4:59:51"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 23,
+        "mean_time": "3:46:52",
+        "median_time": "3:48:37",
+        "fastest_time": "3:30:33",
+        "slowest_time": "3:59:30"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 50,
+        "mean_time": "5:33:00",
+        "median_time": "5:26:05",
+        "fastest_time": "5:00:00",
+        "slowest_time": "6:56:47"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 96,
+        "mean_time": "4:30:19",
+        "median_time": "4:30:01",
+        "fastest_time": "4:00:57",
+        "slowest_time": "4:59:54"
+      },
+      {
+        "age_range": "70+",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 8,
+        "mean_time": "5:21:43",
+        "median_time": "5:13:05",
+        "fastest_time": "5:02:53",
+        "slowest_time": "5:57:40"
+      },
+      {
+        "age_range": "70+",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 15,
+        "mean_time": "4:38:32",
+        "median_time": "4:40:16",
+        "fastest_time": "4:00:56",
+        "slowest_time": "4:57:55"
+      }
+    ]
+  },
+  "2016": {
+    "total_runners": 26630,
+    "completion_rate": 1.0,
+    "mean_time": "3:55:02",
+    "median_time": "3:48:05",
+    "fastest_time": "2:12:45",
+    "slowest_time": "10:30:23",
+    "segments": [
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 837,
+        "mean_time": "3:21:22",
+        "median_time": "3:18:41",
+        "fastest_time": "3:00:01",
+        "slowest_time": "3:59:52"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 104,
+        "mean_time": "5:27:28",
+        "median_time": "5:24:49",
+        "fastest_time": "5:00:22",
+        "slowest_time": "6:43:49"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Elite",
+        "count": 443,
+        "mean_time": "2:49:10",
+        "median_time": "2:51:27",
         "fastest_time": "2:12:45",
-        "slowest_time": "10:30:23",
-        "segments": [
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 837,
-                "mean_time": "3:21:22",
-                "median_time": "3:18:41",
-                "fastest_time": "3:00:01",
-                "slowest_time": "3:59:52"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 104,
-                "mean_time": "5:27:28",
-                "median_time": "5:24:49",
-                "fastest_time": "5:00:22",
-                "slowest_time": "6:43:49"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Elite",
-                "count": 443,
-                "mean_time": "2:49:10",
-                "median_time": "2:51:27",
-                "fastest_time": "2:12:45",
-                "slowest_time": "2:59:52"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 251,
-                "mean_time": "4:27:31",
-                "median_time": "4:26:06",
-                "fastest_time": "4:00:16",
-                "slowest_time": "4:59:11"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 1460,
-                "mean_time": "3:34:13",
-                "median_time": "3:34:10",
-                "fastest_time": "3:00:00",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 330,
-                "mean_time": "5:26:10",
-                "median_time": "5:22:14",
-                "fastest_time": "5:00:04",
-                "slowest_time": "6:04:36"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Elite",
-                "count": 37,
-                "mean_time": "2:49:19",
-                "median_time": "2:52:59",
-                "fastest_time": "2:29:19",
-                "slowest_time": "2:59:51"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 668,
-                "mean_time": "4:26:48",
-                "median_time": "4:24:48",
-                "fastest_time": "4:00:01",
-                "slowest_time": "4:59:57"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 1877,
-                "mean_time": "3:22:33",
-                "median_time": "3:19:21",
-                "fastest_time": "3:00:01",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 199,
-                "mean_time": "5:27:33",
-                "median_time": "5:23:00",
-                "fastest_time": "5:00:04",
-                "slowest_time": "8:25:09"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Elite",
-                "count": 588,
-                "mean_time": "2:51:28",
-                "median_time": "2:53:04",
-                "fastest_time": "2:14:02",
-                "slowest_time": "2:59:58"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 503,
-                "mean_time": "4:28:13",
-                "median_time": "4:26:50",
-                "fastest_time": "4:00:01",
-                "slowest_time": "4:59:39"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 2260,
-                "mean_time": "3:36:38",
-                "median_time": "3:37:17",
-                "fastest_time": "3:00:12",
-                "slowest_time": "3:59:58"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 330,
-                "mean_time": "5:28:25",
-                "median_time": "5:24:03",
-                "fastest_time": "5:00:23",
-                "slowest_time": "10:30:23"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Elite",
-                "count": 30,
-                "mean_time": "2:53:08",
-                "median_time": "2:56:39",
-                "fastest_time": "2:30:03",
-                "slowest_time": "2:59:50"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 832,
-                "mean_time": "4:24:23",
-                "median_time": "4:20:54",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:59"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 3272,
-                "mean_time": "3:27:55",
-                "median_time": "3:26:45",
-                "fastest_time": "3:00:00",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 193,
-                "mean_time": "5:27:42",
-                "median_time": "5:23:10",
-                "fastest_time": "5:00:00",
-                "slowest_time": "7:22:23"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Elite",
-                "count": 287,
-                "mean_time": "2:53:28",
-                "median_time": "2:55:18",
-                "fastest_time": "2:24:55",
-                "slowest_time": "2:59:58"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 744,
-                "mean_time": "4:24:27",
-                "median_time": "4:22:00",
-                "fastest_time": "4:00:02",
-                "slowest_time": "4:59:58"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 2088,
-                "mean_time": "3:43:16",
-                "median_time": "3:45:10",
-                "fastest_time": "3:00:41",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 307,
-                "mean_time": "5:30:05",
-                "median_time": "5:25:37",
-                "fastest_time": "5:00:07",
-                "slowest_time": "7:47:56"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Elite",
-                "count": 16,
-                "mean_time": "2:56:37",
-                "median_time": "2:58:17",
-                "fastest_time": "2:48:49",
-                "slowest_time": "2:59:26"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 1428,
-                "mean_time": "4:20:00",
-                "median_time": "4:16:12",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:51"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 2370,
-                "mean_time": "3:36:14",
-                "median_time": "3:37:03",
-                "fastest_time": "3:00:18",
-                "slowest_time": "3:59:58"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 217,
-                "mean_time": "5:25:59",
-                "median_time": "5:21:40",
-                "fastest_time": "5:00:05",
-                "slowest_time": "6:57:00"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Elite",
-                "count": 44,
-                "mean_time": "2:53:24",
-                "median_time": "2:55:26",
-                "fastest_time": "2:30:57",
-                "slowest_time": "2:59:53"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 964,
-                "mean_time": "4:23:27",
-                "median_time": "4:19:57",
-                "fastest_time": "4:00:05",
-                "slowest_time": "4:59:51"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 622,
-                "mean_time": "3:47:33",
-                "median_time": "3:50:03",
-                "fastest_time": "3:08:05",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 194,
-                "mean_time": "5:26:45",
-                "median_time": "5:24:42",
-                "fastest_time": "5:00:44",
-                "slowest_time": "6:58:53"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Elite",
-                "count": 2,
-                "mean_time": "2:55:32",
-                "median_time": "2:55:32",
-                "fastest_time": "2:53:30",
-                "slowest_time": "2:57:34"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 1086,
-                "mean_time": "4:21:17",
-                "median_time": "4:18:06",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:36"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 515,
-                "mean_time": "3:45:02",
-                "median_time": "3:48:19",
-                "fastest_time": "3:04:28",
-                "slowest_time": "3:59:50"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 139,
-                "mean_time": "5:27:00",
-                "median_time": "5:24:35",
-                "fastest_time": "5:00:03",
-                "slowest_time": "6:38:01"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Elite",
-                "count": 3,
-                "mean_time": "2:52:16",
-                "median_time": "2:53:40",
-                "fastest_time": "2:45:47",
-                "slowest_time": "2:57:22"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 757,
-                "mean_time": "4:24:07",
-                "median_time": "4:21:51",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:56"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 43,
-                "mean_time": "3:47:39",
-                "median_time": "3:47:17",
-                "fastest_time": "3:17:22",
-                "slowest_time": "3:59:48"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 95,
-                "mean_time": "5:21:08",
-                "median_time": "5:14:46",
-                "fastest_time": "5:00:19",
-                "slowest_time": "6:12:20"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 309,
-                "mean_time": "4:30:15",
-                "median_time": "4:29:42",
-                "fastest_time": "4:00:05",
-                "slowest_time": "4:59:57"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 11,
-                "mean_time": "3:48:48",
-                "median_time": "3:48:17",
-                "fastest_time": "3:32:33",
-                "slowest_time": "3:59:25"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 46,
-                "mean_time": "5:30:09",
-                "median_time": "5:28:53",
-                "fastest_time": "5:00:39",
-                "slowest_time": "6:28:33"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 99,
-                "mean_time": "4:32:50",
-                "median_time": "4:34:24",
-                "fastest_time": "4:00:01",
-                "slowest_time": "4:59:16"
-            },
-            {
-                "age_range": "70+",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 18,
-                "mean_time": "5:32:04",
-                "median_time": "5:36:25",
-                "fastest_time": "5:06:41",
-                "slowest_time": "5:54:06"
-            },
-            {
-                "age_range": "70+",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 12,
-                "mean_time": "4:38:59",
-                "median_time": "4:45:43",
-                "fastest_time": "4:00:40",
-                "slowest_time": "4:59:19"
-            }
-        ]
-    },
-    "2017": {
-        "total_runners": 26410,
-        "completion_rate": 1.0,
-        "mean_time": "3:58:03",
-        "median_time": "3:51:39",
+        "slowest_time": "2:59:52"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 251,
+        "mean_time": "4:27:31",
+        "median_time": "4:26:06",
+        "fastest_time": "4:00:16",
+        "slowest_time": "4:59:11"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 1460,
+        "mean_time": "3:34:13",
+        "median_time": "3:34:10",
+        "fastest_time": "3:00:00",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 330,
+        "mean_time": "5:26:10",
+        "median_time": "5:22:14",
+        "fastest_time": "5:00:04",
+        "slowest_time": "6:04:36"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Elite",
+        "count": 37,
+        "mean_time": "2:49:19",
+        "median_time": "2:52:59",
+        "fastest_time": "2:29:19",
+        "slowest_time": "2:59:51"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 668,
+        "mean_time": "4:26:48",
+        "median_time": "4:24:48",
+        "fastest_time": "4:00:01",
+        "slowest_time": "4:59:57"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 1877,
+        "mean_time": "3:22:33",
+        "median_time": "3:19:21",
+        "fastest_time": "3:00:01",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 199,
+        "mean_time": "5:27:33",
+        "median_time": "5:23:00",
+        "fastest_time": "5:00:04",
+        "slowest_time": "8:25:09"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Elite",
+        "count": 588,
+        "mean_time": "2:51:28",
+        "median_time": "2:53:04",
+        "fastest_time": "2:14:02",
+        "slowest_time": "2:59:58"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 503,
+        "mean_time": "4:28:13",
+        "median_time": "4:26:50",
+        "fastest_time": "4:00:01",
+        "slowest_time": "4:59:39"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 2260,
+        "mean_time": "3:36:38",
+        "median_time": "3:37:17",
+        "fastest_time": "3:00:12",
+        "slowest_time": "3:59:58"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 330,
+        "mean_time": "5:28:25",
+        "median_time": "5:24:03",
+        "fastest_time": "5:00:23",
+        "slowest_time": "10:30:23"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Elite",
+        "count": 30,
+        "mean_time": "2:53:08",
+        "median_time": "2:56:39",
+        "fastest_time": "2:30:03",
+        "slowest_time": "2:59:50"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 832,
+        "mean_time": "4:24:23",
+        "median_time": "4:20:54",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:59"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 3272,
+        "mean_time": "3:27:55",
+        "median_time": "3:26:45",
+        "fastest_time": "3:00:00",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 193,
+        "mean_time": "5:27:42",
+        "median_time": "5:23:10",
+        "fastest_time": "5:00:00",
+        "slowest_time": "7:22:23"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Elite",
+        "count": 287,
+        "mean_time": "2:53:28",
+        "median_time": "2:55:18",
+        "fastest_time": "2:24:55",
+        "slowest_time": "2:59:58"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 744,
+        "mean_time": "4:24:27",
+        "median_time": "4:22:00",
+        "fastest_time": "4:00:02",
+        "slowest_time": "4:59:58"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 2088,
+        "mean_time": "3:43:16",
+        "median_time": "3:45:10",
+        "fastest_time": "3:00:41",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 307,
+        "mean_time": "5:30:05",
+        "median_time": "5:25:37",
+        "fastest_time": "5:00:07",
+        "slowest_time": "7:47:56"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Elite",
+        "count": 16,
+        "mean_time": "2:56:37",
+        "median_time": "2:58:17",
+        "fastest_time": "2:48:49",
+        "slowest_time": "2:59:26"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 1428,
+        "mean_time": "4:20:00",
+        "median_time": "4:16:12",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:51"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 2370,
+        "mean_time": "3:36:14",
+        "median_time": "3:37:03",
+        "fastest_time": "3:00:18",
+        "slowest_time": "3:59:58"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 217,
+        "mean_time": "5:25:59",
+        "median_time": "5:21:40",
+        "fastest_time": "5:00:05",
+        "slowest_time": "6:57:00"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Elite",
+        "count": 44,
+        "mean_time": "2:53:24",
+        "median_time": "2:55:26",
+        "fastest_time": "2:30:57",
+        "slowest_time": "2:59:53"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 964,
+        "mean_time": "4:23:27",
+        "median_time": "4:19:57",
+        "fastest_time": "4:00:05",
+        "slowest_time": "4:59:51"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 622,
+        "mean_time": "3:47:33",
+        "median_time": "3:50:03",
+        "fastest_time": "3:08:05",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 194,
+        "mean_time": "5:26:45",
+        "median_time": "5:24:42",
+        "fastest_time": "5:00:44",
+        "slowest_time": "6:58:53"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Elite",
+        "count": 2,
+        "mean_time": "2:55:32",
+        "median_time": "2:55:32",
+        "fastest_time": "2:53:30",
+        "slowest_time": "2:57:34"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 1086,
+        "mean_time": "4:21:17",
+        "median_time": "4:18:06",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:36"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 515,
+        "mean_time": "3:45:02",
+        "median_time": "3:48:19",
+        "fastest_time": "3:04:28",
+        "slowest_time": "3:59:50"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 139,
+        "mean_time": "5:27:00",
+        "median_time": "5:24:35",
+        "fastest_time": "5:00:03",
+        "slowest_time": "6:38:01"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Elite",
+        "count": 3,
+        "mean_time": "2:52:16",
+        "median_time": "2:53:40",
+        "fastest_time": "2:45:47",
+        "slowest_time": "2:57:22"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 757,
+        "mean_time": "4:24:07",
+        "median_time": "4:21:51",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:56"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 43,
+        "mean_time": "3:47:39",
+        "median_time": "3:47:17",
+        "fastest_time": "3:17:22",
+        "slowest_time": "3:59:48"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 95,
+        "mean_time": "5:21:08",
+        "median_time": "5:14:46",
+        "fastest_time": "5:00:19",
+        "slowest_time": "6:12:20"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 309,
+        "mean_time": "4:30:15",
+        "median_time": "4:29:42",
+        "fastest_time": "4:00:05",
+        "slowest_time": "4:59:57"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 11,
+        "mean_time": "3:48:48",
+        "median_time": "3:48:17",
+        "fastest_time": "3:32:33",
+        "slowest_time": "3:59:25"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 46,
+        "mean_time": "5:30:09",
+        "median_time": "5:28:53",
+        "fastest_time": "5:00:39",
+        "slowest_time": "6:28:33"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 99,
+        "mean_time": "4:32:50",
+        "median_time": "4:34:24",
+        "fastest_time": "4:00:01",
+        "slowest_time": "4:59:16"
+      },
+      {
+        "age_range": "70+",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 18,
+        "mean_time": "5:32:04",
+        "median_time": "5:36:25",
+        "fastest_time": "5:06:41",
+        "slowest_time": "5:54:06"
+      },
+      {
+        "age_range": "70+",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 12,
+        "mean_time": "4:38:59",
+        "median_time": "4:45:43",
+        "fastest_time": "4:00:40",
+        "slowest_time": "4:59:19"
+      }
+    ]
+  },
+  "2017": {
+    "total_runners": 26410,
+    "completion_rate": 1.0,
+    "mean_time": "3:58:03",
+    "median_time": "3:51:39",
+    "fastest_time": "2:09:37",
+    "slowest_time": "7:58:14",
+    "segments": [
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 771,
+        "mean_time": "3:23:46",
+        "median_time": "3:20:19",
+        "fastest_time": "3:00:01",
+        "slowest_time": "3:59:39"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 109,
+        "mean_time": "5:24:55",
+        "median_time": "5:19:38",
+        "fastest_time": "5:00:26",
+        "slowest_time": "7:16:59"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Elite",
+        "count": 433,
+        "mean_time": "2:48:37",
+        "median_time": "2:50:07",
         "fastest_time": "2:09:37",
-        "slowest_time": "7:58:14",
-        "segments": [
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 771,
-                "mean_time": "3:23:46",
-                "median_time": "3:20:19",
-                "fastest_time": "3:00:01",
-                "slowest_time": "3:59:39"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 109,
-                "mean_time": "5:24:55",
-                "median_time": "5:19:38",
-                "fastest_time": "5:00:26",
-                "slowest_time": "7:16:59"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Elite",
-                "count": 433,
-                "mean_time": "2:48:37",
-                "median_time": "2:50:07",
-                "fastest_time": "2:09:37",
-                "slowest_time": "2:59:51"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 292,
-                "mean_time": "4:27:49",
-                "median_time": "4:25:56",
-                "fastest_time": "4:00:09",
-                "slowest_time": "4:59:25"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 1362,
-                "mean_time": "3:34:49",
-                "median_time": "3:35:05",
-                "fastest_time": "3:01:13",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 342,
-                "mean_time": "5:25:19",
-                "median_time": "5:23:04",
-                "fastest_time": "5:00:00",
-                "slowest_time": "6:07:22"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Elite",
-                "count": 44,
-                "mean_time": "2:49:33",
-                "median_time": "2:53:59",
-                "fastest_time": "2:22:51",
-                "slowest_time": "2:59:51"
-            },
-            {
-                "age_range": "18-29",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 759,
-                "mean_time": "4:27:05",
-                "median_time": "4:26:31",
-                "fastest_time": "4:00:02",
-                "slowest_time": "4:59:58"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 1874,
-                "mean_time": "3:23:45",
-                "median_time": "3:20:50",
-                "fastest_time": "3:00:02",
-                "slowest_time": "3:59:55"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 202,
-                "mean_time": "5:27:20",
-                "median_time": "5:23:34",
-                "fastest_time": "5:00:12",
-                "slowest_time": "6:52:10"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Elite",
-                "count": 598,
-                "mean_time": "2:50:19",
-                "median_time": "2:52:50",
-                "fastest_time": "2:09:58",
-                "slowest_time": "2:59:59"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 495,
-                "mean_time": "4:27:14",
-                "median_time": "4:26:27",
-                "fastest_time": "4:00:10",
-                "slowest_time": "4:59:57"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 2073,
-                "mean_time": "3:37:48",
-                "median_time": "3:38:49",
-                "fastest_time": "3:00:12",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 328,
-                "mean_time": "5:25:23",
-                "median_time": "5:22:22",
-                "fastest_time": "5:00:03",
-                "slowest_time": "6:16:04"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Elite",
-                "count": 37,
-                "mean_time": "2:48:00",
-                "median_time": "2:50:23",
-                "fastest_time": "2:21:52",
-                "slowest_time": "2:59:33"
-            },
-            {
-                "age_range": "30-39",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 901,
-                "mean_time": "4:24:17",
-                "median_time": "4:21:01",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:58"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 3170,
-                "mean_time": "3:28:52",
-                "median_time": "3:27:25",
-                "fastest_time": "3:00:01",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 269,
-                "mean_time": "5:25:35",
-                "median_time": "5:20:27",
-                "fastest_time": "5:00:02",
-                "slowest_time": "7:58:14"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Elite",
-                "count": 278,
-                "mean_time": "2:51:30",
-                "median_time": "2:53:50",
-                "fastest_time": "2:12:45",
-                "slowest_time": "2:59:58"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 824,
-                "mean_time": "4:24:33",
-                "median_time": "4:22:08",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:50"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 1803,
-                "mean_time": "3:43:34",
-                "median_time": "3:45:32",
-                "fastest_time": "3:00:07",
-                "slowest_time": "3:59:59"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 352,
-                "mean_time": "5:29:03",
-                "median_time": "5:25:56",
-                "fastest_time": "5:00:15",
-                "slowest_time": "6:46:30"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Elite",
-                "count": 10,
-                "mean_time": "2:50:35",
-                "median_time": "2:54:34",
-                "fastest_time": "2:36:28",
-                "slowest_time": "2:59:46"
-            },
-            {
-                "age_range": "40-49",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 1552,
-                "mean_time": "4:21:03",
-                "median_time": "4:17:25",
-                "fastest_time": "4:00:01",
-                "slowest_time": "4:59:54"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 2116,
-                "mean_time": "3:37:29",
-                "median_time": "3:39:02",
-                "fastest_time": "3:00:02",
-                "slowest_time": "3:59:58"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 258,
-                "mean_time": "5:26:00",
-                "median_time": "5:20:53",
-                "fastest_time": "5:00:08",
-                "slowest_time": "6:24:03"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Elite",
-                "count": 53,
-                "mean_time": "2:54:11",
-                "median_time": "2:54:43",
-                "fastest_time": "2:41:48",
-                "slowest_time": "2:59:57"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 1055,
-                "mean_time": "4:23:00",
-                "median_time": "4:20:28",
-                "fastest_time": "4:00:06",
-                "slowest_time": "4:59:55"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 513,
-                "mean_time": "3:47:55",
-                "median_time": "3:50:36",
-                "fastest_time": "3:00:15",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 222,
-                "mean_time": "5:26:14",
-                "median_time": "5:21:34",
-                "fastest_time": "5:00:04",
-                "slowest_time": "7:19:37"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Elite",
-                "count": 1,
-                "mean_time": "2:58:08",
-                "median_time": "2:58:08",
-                "fastest_time": "2:58:08",
-                "slowest_time": "2:58:08"
-            },
-            {
-                "age_range": "50-59",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 1185,
-                "mean_time": "4:22:56",
-                "median_time": "4:20:06",
-                "fastest_time": "4:00:02",
-                "slowest_time": "4:59:58"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 452,
-                "mean_time": "3:44:41",
-                "median_time": "3:47:30",
-                "fastest_time": "3:00:34",
-                "slowest_time": "3:59:57"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 199,
-                "mean_time": "5:25:54",
-                "median_time": "5:21:11",
-                "fastest_time": "5:00:03",
-                "slowest_time": "7:20:44"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Elite",
-                "count": 1,
-                "mean_time": "2:58:23",
-                "median_time": "2:58:23",
-                "fastest_time": "2:58:23",
-                "slowest_time": "2:58:23"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 817,
-                "mean_time": "4:24:49",
-                "median_time": "4:22:24",
-                "fastest_time": "4:00:00",
-                "slowest_time": "4:59:52"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Avancé",
-                "count": 31,
-                "mean_time": "3:49:40",
-                "median_time": "3:52:42",
-                "fastest_time": "3:18:53",
-                "slowest_time": "3:59:51"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 116,
-                "mean_time": "5:25:58",
-                "median_time": "5:20:42",
-                "fastest_time": "5:00:39",
-                "slowest_time": "7:09:39"
-            },
-            {
-                "age_range": "60-69",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 308,
-                "mean_time": "4:31:04",
-                "median_time": "4:30:38",
-                "fastest_time": "4:00:36",
-                "slowest_time": "4:59:55"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Avancé",
-                "count": 8,
-                "mean_time": "3:41:53",
-                "median_time": "3:42:34",
-                "fastest_time": "3:29:38",
-                "slowest_time": "3:52:01"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Débutant",
-                "count": 62,
-                "mean_time": "5:27:52",
-                "median_time": "5:27:35",
-                "fastest_time": "5:00:02",
-                "slowest_time": "6:44:49"
-            },
-            {
-                "age_range": "70+",
-                "gender": 1,
-                "level": "Intermédiaire",
-                "count": 102,
-                "mean_time": "4:31:38",
-                "median_time": "4:32:09",
-                "fastest_time": "4:02:07",
-                "slowest_time": "4:58:30"
-            },
-            {
-                "age_range": "70+",
-                "gender": 2,
-                "level": "Débutant",
-                "count": 18,
-                "mean_time": "5:30:45",
-                "median_time": "5:32:17",
-                "fastest_time": "5:03:46",
-                "slowest_time": "6:04:07"
-            },
-            {
-                "age_range": "70+",
-                "gender": 2,
-                "level": "Intermédiaire",
-                "count": 15,
-                "mean_time": "4:41:03",
-                "median_time": "4:44:31",
-                "fastest_time": "4:12:24",
-                "slowest_time": "4:57:58"
-            }
-        ]
-    }
+        "slowest_time": "2:59:51"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 292,
+        "mean_time": "4:27:49",
+        "median_time": "4:25:56",
+        "fastest_time": "4:00:09",
+        "slowest_time": "4:59:25"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 1362,
+        "mean_time": "3:34:49",
+        "median_time": "3:35:05",
+        "fastest_time": "3:01:13",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 342,
+        "mean_time": "5:25:19",
+        "median_time": "5:23:04",
+        "fastest_time": "5:00:00",
+        "slowest_time": "6:07:22"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Elite",
+        "count": 44,
+        "mean_time": "2:49:33",
+        "median_time": "2:53:59",
+        "fastest_time": "2:22:51",
+        "slowest_time": "2:59:51"
+      },
+      {
+        "age_range": "18-29",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 759,
+        "mean_time": "4:27:05",
+        "median_time": "4:26:31",
+        "fastest_time": "4:00:02",
+        "slowest_time": "4:59:58"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 1874,
+        "mean_time": "3:23:45",
+        "median_time": "3:20:50",
+        "fastest_time": "3:00:02",
+        "slowest_time": "3:59:55"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 202,
+        "mean_time": "5:27:20",
+        "median_time": "5:23:34",
+        "fastest_time": "5:00:12",
+        "slowest_time": "6:52:10"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Elite",
+        "count": 598,
+        "mean_time": "2:50:19",
+        "median_time": "2:52:50",
+        "fastest_time": "2:09:58",
+        "slowest_time": "2:59:59"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 495,
+        "mean_time": "4:27:14",
+        "median_time": "4:26:27",
+        "fastest_time": "4:00:10",
+        "slowest_time": "4:59:57"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 2073,
+        "mean_time": "3:37:48",
+        "median_time": "3:38:49",
+        "fastest_time": "3:00:12",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 328,
+        "mean_time": "5:25:23",
+        "median_time": "5:22:22",
+        "fastest_time": "5:00:03",
+        "slowest_time": "6:16:04"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Elite",
+        "count": 37,
+        "mean_time": "2:48:00",
+        "median_time": "2:50:23",
+        "fastest_time": "2:21:52",
+        "slowest_time": "2:59:33"
+      },
+      {
+        "age_range": "30-39",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 901,
+        "mean_time": "4:24:17",
+        "median_time": "4:21:01",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:58"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 3170,
+        "mean_time": "3:28:52",
+        "median_time": "3:27:25",
+        "fastest_time": "3:00:01",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 269,
+        "mean_time": "5:25:35",
+        "median_time": "5:20:27",
+        "fastest_time": "5:00:02",
+        "slowest_time": "7:58:14"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Elite",
+        "count": 278,
+        "mean_time": "2:51:30",
+        "median_time": "2:53:50",
+        "fastest_time": "2:12:45",
+        "slowest_time": "2:59:58"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 824,
+        "mean_time": "4:24:33",
+        "median_time": "4:22:08",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:50"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 1803,
+        "mean_time": "3:43:34",
+        "median_time": "3:45:32",
+        "fastest_time": "3:00:07",
+        "slowest_time": "3:59:59"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 352,
+        "mean_time": "5:29:03",
+        "median_time": "5:25:56",
+        "fastest_time": "5:00:15",
+        "slowest_time": "6:46:30"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Elite",
+        "count": 10,
+        "mean_time": "2:50:35",
+        "median_time": "2:54:34",
+        "fastest_time": "2:36:28",
+        "slowest_time": "2:59:46"
+      },
+      {
+        "age_range": "40-49",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 1552,
+        "mean_time": "4:21:03",
+        "median_time": "4:17:25",
+        "fastest_time": "4:00:01",
+        "slowest_time": "4:59:54"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 2116,
+        "mean_time": "3:37:29",
+        "median_time": "3:39:02",
+        "fastest_time": "3:00:02",
+        "slowest_time": "3:59:58"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 258,
+        "mean_time": "5:26:00",
+        "median_time": "5:20:53",
+        "fastest_time": "5:00:08",
+        "slowest_time": "6:24:03"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Elite",
+        "count": 53,
+        "mean_time": "2:54:11",
+        "median_time": "2:54:43",
+        "fastest_time": "2:41:48",
+        "slowest_time": "2:59:57"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 1055,
+        "mean_time": "4:23:00",
+        "median_time": "4:20:28",
+        "fastest_time": "4:00:06",
+        "slowest_time": "4:59:55"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 513,
+        "mean_time": "3:47:55",
+        "median_time": "3:50:36",
+        "fastest_time": "3:00:15",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 222,
+        "mean_time": "5:26:14",
+        "median_time": "5:21:34",
+        "fastest_time": "5:00:04",
+        "slowest_time": "7:19:37"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Elite",
+        "count": 1,
+        "mean_time": "2:58:08",
+        "median_time": "2:58:08",
+        "fastest_time": "2:58:08",
+        "slowest_time": "2:58:08"
+      },
+      {
+        "age_range": "50-59",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 1185,
+        "mean_time": "4:22:56",
+        "median_time": "4:20:06",
+        "fastest_time": "4:00:02",
+        "slowest_time": "4:59:58"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 452,
+        "mean_time": "3:44:41",
+        "median_time": "3:47:30",
+        "fastest_time": "3:00:34",
+        "slowest_time": "3:59:57"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 199,
+        "mean_time": "5:25:54",
+        "median_time": "5:21:11",
+        "fastest_time": "5:00:03",
+        "slowest_time": "7:20:44"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Elite",
+        "count": 1,
+        "mean_time": "2:58:23",
+        "median_time": "2:58:23",
+        "fastest_time": "2:58:23",
+        "slowest_time": "2:58:23"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 817,
+        "mean_time": "4:24:49",
+        "median_time": "4:22:24",
+        "fastest_time": "4:00:00",
+        "slowest_time": "4:59:52"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Advanced",
+        "count": 31,
+        "mean_time": "3:49:40",
+        "median_time": "3:52:42",
+        "fastest_time": "3:18:53",
+        "slowest_time": "3:59:51"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 116,
+        "mean_time": "5:25:58",
+        "median_time": "5:20:42",
+        "fastest_time": "5:00:39",
+        "slowest_time": "7:09:39"
+      },
+      {
+        "age_range": "60-69",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 308,
+        "mean_time": "4:31:04",
+        "median_time": "4:30:38",
+        "fastest_time": "4:00:36",
+        "slowest_time": "4:59:55"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Advanced",
+        "count": 8,
+        "mean_time": "3:41:53",
+        "median_time": "3:42:34",
+        "fastest_time": "3:29:38",
+        "slowest_time": "3:52:01"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Beginner",
+        "count": 62,
+        "mean_time": "5:27:52",
+        "median_time": "5:27:35",
+        "fastest_time": "5:00:02",
+        "slowest_time": "6:44:49"
+      },
+      {
+        "age_range": "70+",
+        "gender": 1,
+        "level": "Intermediate",
+        "count": 102,
+        "mean_time": "4:31:38",
+        "median_time": "4:32:09",
+        "fastest_time": "4:02:07",
+        "slowest_time": "4:58:30"
+      },
+      {
+        "age_range": "70+",
+        "gender": 2,
+        "level": "Beginner",
+        "count": 18,
+        "mean_time": "5:30:45",
+        "median_time": "5:32:17",
+        "fastest_time": "5:03:46",
+        "slowest_time": "6:04:07"
+      },
+      {
+        "age_range": "70+",
+        "gender": 2,
+        "level": "Intermediate",
+        "count": 15,
+        "mean_time": "4:41:03",
+        "median_time": "4:44:31",
+        "fastest_time": "4:12:24",
+        "slowest_time": "4:57:58"
+      }
+    ]
+  }
 }
