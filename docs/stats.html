@@ -5,6 +5,7 @@
   <title>Boston Marathon Statistics Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <style>
     body { 
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -14,6 +15,37 @@
       min-height: 100vh;
     }
     
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #667eea;
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-btn:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .back-btn i {
+      margin-right: 8px;
+    }
+
     h1 { 
       text-align: center; 
       color: white;
@@ -234,6 +266,10 @@
   </style>
 </head>
 <body>
+  <a href="home_page.html" class="back-btn">
+    <i class="fas fa-arrow-left mr-2"></i>
+    Retour au parcours
+  </a>
   <h1>🏃‍♂️ Boston Marathon Statistics Dashboard</h1>
 
   <div id="loadingMessage" class="loading">
