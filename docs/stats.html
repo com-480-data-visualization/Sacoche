@@ -122,17 +122,7 @@
       font-weight: bold;
       transition: all 0.3s ease;
     }
-    
-    #applyFiltersBtn {
-      background: #667eea;
-      color: white;
-    }
-    
-    #applyFiltersBtn:hover {
-      background: #5a6fd8;
-      transform: translateY(-2px);
-    }
-    
+        
     #resetFiltersBtn {
       background: #e74c3c;
       color: white;
@@ -370,7 +360,6 @@
         </div>
 
         <div>
-          <button type="button" id="applyFiltersBtn">Apply Filters</button>
           <button type="button" id="resetFiltersBtn">Reset Filters</button>
         </div>
       </div>
@@ -636,9 +625,17 @@
 
     function setupEventListeners() {
       document.getElementById("yearSelect").addEventListener("change", updateDashboard);
-      document.getElementById("applyFiltersBtn").addEventListener("click", updateDashboard);
+      document.getElementById("ageRangeSlider").addEventListener("input", function() {
+        updateAgeRangeDisplay();
+        updateDashboard(); // Mise à jour automatique
+      });
+      document.querySelectorAll('input[name="gender"]').forEach(checkbox => {
+        checkbox.addEventListener("change", updateDashboard);
+      });
+      document.querySelectorAll('input[name="level"]').forEach(checkbox => {
+        checkbox.addEventListener("change", updateDashboard);
+      });
       document.getElementById("resetFiltersBtn").addEventListener("click", resetFilters);
-      document.getElementById("ageRangeSlider").addEventListener("input", updateAgeRangeDisplay);
     }
 
     function updateAgeRangeDisplay() {
