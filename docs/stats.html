@@ -21,23 +21,7 @@
       font-size: 2.5em;
       margin-bottom: 10px;
     }
-    
-    .year-selector {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    .year-selector select {
-      padding: 10px 15px;
-      font-size: 16px;
-      border-radius: 25px;
-      border: none;
-      background: white;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      outline: none;
-      cursor: pointer;
-    }
-    
+      
     #main { 
       display: flex; 
       gap: 20px; 
@@ -122,7 +106,7 @@
     
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       margin-top: 15px;
     }
@@ -235,18 +219,23 @@
       text-align: center;
       font-weight: bold;
     }
+
+    #yearSelect {
+      cursor: pointer;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    #yearSelect:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
   </style>
 </head>
 <body>
   <h1>🏃‍♂️ Boston Marathon Statistics Dashboard</h1>
-  
-  <div class="year-selector">
-    <label for="yearSelect" style="color: white; margin-right: 10px; font-size: 1.1em;">Select Year:</label>
-    <select id="yearSelect">
-      <option value="">Loading...</option>
-    </select>
-  </div>
-  
+
   <div id="loadingMessage" class="loading">
     <div class="spinner"></div>
     Loading marathon data from stats_marathon_2015_2017.json...
@@ -285,7 +274,14 @@
           <label><input type="checkbox" name="level" value="Avancé" checked> 🥇 Avancé</label>
           <label><input type="checkbox" name="level" value="Elite" checked> 🏆 Elite</label>
         </div>
-        
+
+        <div class="filter-section">
+          <strong>📅 Year</strong>
+          <select id="yearSelect" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ddd;">
+            <option value="">Loading...</option>
+          </select>
+        </div>
+
         <div>
           <button type="button" id="applyFiltersBtn">Apply Filters</button>
           <button type="button" id="resetFiltersBtn">Reset Filters</button>
@@ -297,10 +293,6 @@
       <div id="summaryStats" class="card">
         <h2>📊 Summary Statistics</h2>
         <div class="stats-grid">
-          <div class="stat-item">
-            <span class="stat-value" id="totalRunnersValue">-</span>
-            <div class="stat-label">Total Runners</div>
-          </div>
           <div class="stat-item">
             <span class="stat-value" id="avgTimeValue">-</span>
             <div class="stat-label">Average Time</div>
@@ -317,15 +309,11 @@
             <span class="stat-value" id="medianTimeValue">-</span>
             <div class="stat-label">Median Time</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-value" id="completionRateValue">100.0%</span>
-            <div class="stat-label">Completion Rate</div>
-          </div>
         </div>
         
         <div id="filteredInfo" class="data-info" style="margin-top: 15px; display: none;">
           <strong>🔍 Filtered Results:</strong>
-          <span id="filteredCount">0 segments</span> showing <span id="filteredRunners">0 runners</span>
+          <span id="filteredCount">0 segments</span><span id="filteredRunners">0 runners</span>
         </div>
       </div>
       
@@ -523,13 +511,11 @@
     
     function showDataInfo() {
       const years = Object.keys(marathonStats);
-      const totalSegments = years.reduce((sum, year) => sum + (marathonStats[year].segments?.length || 0), 0);
       const totalRunners = years.reduce((sum, year) => sum + (marathonStats[year].total_runners || 0), 0);
       
       document.getElementById('dataInfo').style.display = 'block';
       document.getElementById('dataStats').innerHTML = `
         📅 ${years.length} years (${years.join(', ')})<br>
-        📊 ${totalSegments} data segments<br>
         🏃‍♂️ ${totalRunners.toLocaleString()} total runners
       `;
     }
@@ -694,18 +680,16 @@
       }
 
       // Update summary stats with filtered data
-      document.getElementById("totalRunnersValue").textContent = filteredStats.totalRunners.toLocaleString();
       document.getElementById("avgTimeValue").textContent = filteredStats.avgTime;
       document.getElementById("fastestTimeValue").textContent = filteredStats.fastestTime;
       document.getElementById("slowestTimeValue").textContent = filteredStats.slowestTime;
       document.getElementById("medianTimeValue").textContent = filteredStats.medianTime;
-      document.getElementById("completionRateValue").textContent = ((yearData.completion_rate || 1) * 100).toFixed(1) + "%";
-
+      
       // Update filtered info
       document.getElementById('filteredInfo').style.display = 'block';
-      document.getElementById('filteredCount').textContent = `${filteredSegments.length} segments`;
+      document.getElementById('filteredCount').textContent = '';
       document.getElementById('filteredRunners').textContent = `${filteredRunners.toLocaleString()} runners`;
-      
+            
       // Update chart
       updateChart(filteredSegments);
       
