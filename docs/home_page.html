@@ -287,7 +287,7 @@
                   class="marathon-path"/>
             
             <!-- Coureurs animés avec labels -->
-            <g class="runner-group" data-level="Débutant">
+            <g class="runner-group" data-level="Beginner">
                 <circle class="runner runner-debutant" r="12">
                     <animateMotion dur="30s" repeatCount="indefinite">
                         <mpath href="#marathon-route"/>
@@ -296,7 +296,7 @@
                 <text class="runner-label">B</text>
             </g>
             
-            <g class="runner-group" data-level="Intermédiaire">
+            <g class="runner-group" data-level="Intermediate">
                 <circle class="runner runner-intermediaire" r="12">
                     <animateMotion dur="22.5s" repeatCount="indefinite">
                         <mpath href="#marathon-route"/>
@@ -305,7 +305,7 @@
                 <text class="runner-label">I</text>
             </g>
             
-            <g class="runner-group" data-level="Avancé">
+            <g class="runner-group" data-level="Advanced">
                 <circle class="runner runner-avance" r="12">
                     <animateMotion dur="17.5s" repeatCount="indefinite">
                         <mpath href="#marathon-route"/>
@@ -341,15 +341,15 @@
                 <i class="fas fa-users mr-2"></i>
                 Runner levels
             </h4>
-            <div class="legend-item" onclick="goToStats('Débutant')">
+            <div class="legend-item" onclick="goToStats('Beginner')">
                 <div class="legend-color" style="background: #10b981;"></div>
                 <span>Beginner (4h+) - B</span>
             </div>
-            <div class="legend-item" onclick="goToStats('Intermédiaire')">
+            <div class="legend-item" onclick="goToStats('Intermediate')">
                 <div class="legend-color" style="background: #3b82f6;"></div>
                 <span>Intermediate (3h-4h) - I</span>
             </div>
-            <div class="legend-item" onclick="goToStats('Avancé')">
+            <div class="legend-item" onclick="goToStats('Advanced')">
                 <div class="legend-color" style="background: #f59e0b;"></div>
                 <span>Advanced (2h30-3h) - A</span>
             </div>
@@ -476,9 +476,9 @@
                 let duration;
                 
                 switch(level) {
-                    case 'Débutant': duration = 30; break;
-                    case 'Intermédiaire': duration = 22.5; break;
-                    case 'Avancé': duration = 17.5; break;
+                    case 'Beginner': duration = 30; break;
+                    case 'Intermediate': duration = 22.5; break;
+                    case 'Advanced': duration = 17.5; break;
                     case 'Elite': duration = 12.5; break;
                     default: duration = 25;
                 }
@@ -597,7 +597,7 @@
                 // Gestion du hover
                 group.addEventListener('mouseenter', function(e) {
                     tooltip.style.opacity = '1';
-                    tooltip.innerHTML = `<strong>${level}</strong><br>Cliquez pour voir les stats`;
+                    tooltip.innerHTML = `<strong>${level}</strong><br>Click to see the stats`;
                 });
                 
                 group.addEventListener('mouseleave', function() {
