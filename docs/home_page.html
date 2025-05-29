@@ -165,7 +165,7 @@
         }
 
         .finish-marker {
-            background: #ef4444;
+            background: #0c5817;
             color: white;
         }
         
@@ -220,24 +220,49 @@
         .dashboard-btn {
             position: absolute;
             bottom: 120px;
-            left: 450px;
+            left: calc(50% - 250px);  /* ← Écarte plus les boutons (était -220px) */
             background: #3b82f6;
             color: white;
-            padding: 16px 32px;      /* ← Augmentez (était 12px 24px) */
+            padding: 16px 32px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 16px;         /* ← Ajoutez pour augmenter la taille du texte */
+            font-size: 16px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            min-width: 200px;        /* ← Ajoutez pour définir une largeur minimale */
-            text-align: center;      /* ← Ajoutez pour centrer le texte */
+            min-width: 200px;
+            text-align: center;
         }
-        
+
         .dashboard-btn:hover {
             background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+            transform: translateY(-3px);     /* ← Corrigé: mouvement vers le haut */
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+            font-size: 19px;
+        }
+
+        .pace-profile-btn {
+            position: absolute;
+            bottom: 120px;
+            left: calc(50% + 50px);   /* ← Écarte plus les boutons (était +20px) */
+            background: #2107e3;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .pace-profile-btn:hover {
+            background: #1b0478;
+            transform: translateY(-3px);     /* ← Uniformisé: mouvement vers le haut */
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.6); /* ← Uniformisé: même intensité d'ombre */
+            font-size: 19px;                /* ← Même augmentation de taille */
         }
         
         .tooltip {
@@ -385,6 +410,12 @@
             <i class="fas fa-chart-bar mr-2"></i>
             See general statistics
         </a>
+
+        <!-- Nouveau bouton vers pace profile -->
+        <a href="#" class="pace-profile-btn" onclick="goToPaceProfile()">
+            <i class="fas fa-tachometer-alt mr-2"></i>
+            Personnal Pace Strategy
+        </a>
         
         <!-- Tooltip -->
         <div class="tooltip" id="tooltip"></div>
@@ -469,6 +500,10 @@
             console.log('✅ Boston Marathon path created with EXACT coordinates');
             console.log(`🏁 Start: ${waypoints[0].lat}, ${waypoints[0].lon}`);
             console.log(`🏆 Finish: ${waypoints[waypoints.length-1].lat}, ${waypoints[waypoints.length-1].lon}`);
+        }
+        
+        function goToPaceProfile() {
+            window.location.href = 'pace_profil.html';
         }
 
         // Function to convert GPS coordinates to SVG path
