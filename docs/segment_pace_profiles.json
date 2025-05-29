@@ -1,0 +1,2510 @@
+{
+    "02:10": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 2.99
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.01
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.05
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.1
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.15
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.13
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.19
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.16
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.04
+        }
+    ],
+    "02:15": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.08
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.05
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.1
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.16
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.17
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.18
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.19
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.28
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.32
+        }
+    ],
+    "02:20": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.16
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.18
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.2
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.26
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.25
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.28
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.37
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.48
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.5
+        }
+    ],
+    "02:25": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.33
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.35
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.39
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.41
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.38
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.43
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.48
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.56
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.54
+        }
+    ],
+    "02:30": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.45
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.46
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.48
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.51
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.47
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.52
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.6
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.7
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.67
+        }
+    ],
+    "02:35": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.56
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.56
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.6
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.62
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.58
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.64
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.73
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.83
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.82
+        }
+    ],
+    "02:40": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.68
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.67
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.71
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.74
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.7
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.76
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.85
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 3.95
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 3.94
+        }
+    ],
+    "02:45": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.79
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.78
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.81
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.85
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.8
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 3.88
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 3.98
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.09
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.07
+        }
+    ],
+    "02:50": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 3.91
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 3.89
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 3.92
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 3.97
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 3.92
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.0
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.1
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.2
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.18
+        }
+    ],
+    "02:55": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.04
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.01
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.03
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.08
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.04
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.11
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.22
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.32
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.31
+        }
+    ],
+    "03:00": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.16
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.12
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.14
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.19
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.15
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.22
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.34
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.44
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.41
+        }
+    ],
+    "03:05": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.23
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.2
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.22
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.28
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.24
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.33
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.46
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.6
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.62
+        }
+    ],
+    "03:10": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.31
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.29
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.31
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.39
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.34
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.44
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.59
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.76
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.79
+        }
+    ],
+    "03:15": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.4
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.38
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.41
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.5
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.45
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.56
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.72
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 4.9
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 4.93
+        }
+    ],
+    "03:20": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.51
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.48
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.52
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.61
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.56
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.69
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.85
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.03
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.06
+        }
+    ],
+    "03:25": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.61
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.59
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.63
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.73
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.68
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.8
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 4.97
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.17
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.19
+        }
+    ],
+    "03:30": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.72
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.7
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.75
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.85
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.79
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 4.93
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.11
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.3
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.29
+        }
+    ],
+    "03:35": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.82
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.8
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.85
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 4.95
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.89
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.04
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.24
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.45
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.45
+        }
+    ],
+    "03:40": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 4.91
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.89
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 4.94
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.05
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 4.98
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.15
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.37
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.61
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.6
+        }
+    ],
+    "03:45": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.0
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 4.98
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.04
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.16
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.09
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.28
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.51
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.76
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.74
+        }
+    ],
+    "03:50": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.09
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.08
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.15
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.28
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.2
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.4
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.65
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 5.91
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.86
+        }
+    ],
+    "03:55": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.18
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.17
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.25
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.39
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.3
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.54
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.8
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.07
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 5.97
+        }
+    ],
+    "04:00": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.27
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.26
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.34
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.49
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.39
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.66
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 5.94
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.21
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 6.11
+        }
+    ],
+    "04:05": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.34
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.34
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.43
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.59
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.49
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.79
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.08
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.37
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 6.28
+        }
+    ],
+    "04:10": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.42
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.41
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.52
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.69
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.57
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 5.91
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.23
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.53
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 6.44
+        }
+    ],
+    "04:15": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.5
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.5
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.61
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.8
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.67
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.06
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.37
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.68
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 6.59
+        }
+    ],
+    "04:20": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.59
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.59
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.71
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 5.91
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.76
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.19
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.52
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.83
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 6.73
+        }
+    ],
+    "04:25": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.68
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.67
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.79
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.01
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.87
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.32
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.65
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 6.98
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 6.89
+        }
+    ],
+    "04:30": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.76
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.76
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.88
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.12
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 5.97
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.48
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.8
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 7.14
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.02
+        }
+    ],
+    "04:35": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.85
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.84
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 5.98
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.25
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.07
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.61
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 6.95
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 7.29
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.14
+        }
+    ],
+    "04:40": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 5.97
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 5.97
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.09
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.36
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.19
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.73
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.05
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 7.39
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.27
+        }
+    ],
+    "04:45": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.02
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.04
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.19
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.48
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.3
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 6.88
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.24
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 7.56
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.4
+        }
+    ],
+    "04:50": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.08
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.11
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.27
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.59
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.4
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.04
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.37
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 7.77
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.55
+        }
+    ],
+    "04:55": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.19
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.25
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.41
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.72
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.52
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.17
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.5
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 7.88
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.62
+        }
+    ],
+    "05:00": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.25
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.32
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.5
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 6.85
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.64
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.33
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.68
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.02
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.73
+        }
+    ],
+    "05:05": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.32
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.39
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.61
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.0
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.74
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.47
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.8
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.13
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 7.88
+        }
+    ],
+    "05:10": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.36
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.48
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.72
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.1
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.86
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.64
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 7.96
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.28
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.02
+        }
+    ],
+    "05:15": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.39
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.55
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.81
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.2
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 6.96
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.75
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.11
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.45
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.18
+        }
+    ],
+    "05:20": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.5
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.64
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 6.92
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.34
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.09
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 7.93
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.25
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.56
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.27
+        }
+    ],
+    "05:25": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.57
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.75
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.02
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.45
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.23
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.03
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.39
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.73
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.41
+        }
+    ],
+    "05:30": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.66
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.87
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.15
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.64
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.35
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.12
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.51
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.8
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.55
+        }
+    ],
+    "05:35": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.7
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.96
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.27
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.71
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.44
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.26
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.67
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 8.97
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.7
+        }
+    ],
+    "05:40": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.69
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.02
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.36
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.85
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.52
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.44
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.83
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.14
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.85
+        }
+    ],
+    "05:45": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.81
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.16
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.52
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 7.98
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.69
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.6
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.97
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.28
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.87
+        }
+    ],
+    "05:50": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.87
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.26
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.64
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.16
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.8
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.73
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 9.16
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.37
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 8.97
+        }
+    ],
+    "05:55": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.01
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.42
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.8
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.35
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 7.99
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 8.86
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 9.18
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.44
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 9.0
+        }
+    ],
+    "06:00": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.02
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.43
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.87
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.46
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.08
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.03
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 9.49
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.65
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 9.17
+        }
+    ],
+    "06:05": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.07
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.52
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.01
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.57
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.18
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.14
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 9.56
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.7
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 9.28
+        }
+    ],
+    "06:10": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.07
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.45
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.1
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.56
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.2
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.09
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 9.68
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.06
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 9.58
+        }
+    ],
+    "06:15": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.69
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.29
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.86
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.57
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.59
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.71
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.23
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.27
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 9.76
+        }
+    ],
+    "06:20": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.99
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.61
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.08
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.39
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.39
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.6
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.25
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.24
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 10.6
+        }
+    ],
+    "06:25": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.63
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.0
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.43
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.11
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.51
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 10.03
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.35
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.97
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 11.03
+        }
+    ],
+    "06:30": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 8.28
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 8.46
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.68
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 8.82
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.85
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.16
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 9.8
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 9.93
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 10.35
+        }
+    ],
+    "06:35": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.29
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.05
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.64
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.22
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.58
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 10.47
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 11.24
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 11.28
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 11.07
+        }
+    ],
+    "06:40": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.28
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 8.26
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 9.27
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.61
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 9.53
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 10.79
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.72
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.48
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 9.65
+        }
+    ],
+    "06:45": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.15
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 8.15
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.43
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.32
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.36
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 10.04
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.83
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 11.08
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 10.1
+        }
+    ],
+    "06:50": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": NaN
+        }
+    ],
+    "06:55": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 8.18
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 8.85
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.9
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.77
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 9.09
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 9.88
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 11.17
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.81
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 11.06
+        }
+    ],
+    "07:00": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.58
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 8.7
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 8.87
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 10.47
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 9.44
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 11.29
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 11.06
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 11.04
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 11.14
+        }
+    ],
+    "07:05": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 7.05
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 7.06
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 7.46
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.23
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 8.05
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 20.09
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 8.36
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.05
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 13.92
+        }
+    ],
+    "07:10": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 9.35
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 9.79
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 9.58
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 9.83
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 9.83
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 12.45
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.21
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 10.43
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 10.33
+        }
+    ],
+    "07:15": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 6.41
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 6.7
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 9.35
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 11.48
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 9.79
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 12.78
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 11.94
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 12.76
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 12.11
+        }
+    ],
+    "07:20": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": NaN
+        }
+    ],
+    "07:40": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 10.05
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 10.65
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 10.67
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 11.11
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 10.33
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 10.79
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 10.77
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 11.52
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 11.25
+        }
+    ],
+    "07:50": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": NaN
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": NaN
+        }
+    ],
+    "08:00": [
+        {
+            "segment": "5K",
+            "avg_pace_min_per_km": 9.81
+        },
+        {
+            "segment": "10K",
+            "avg_pace_min_per_km": 10.23
+        },
+        {
+            "segment": "15K",
+            "avg_pace_min_per_km": 10.66
+        },
+        {
+            "segment": "20K",
+            "avg_pace_min_per_km": 11.63
+        },
+        {
+            "segment": "Half",
+            "avg_pace_min_per_km": 10.24
+        },
+        {
+            "segment": "25K",
+            "avg_pace_min_per_km": 11.72
+        },
+        {
+            "segment": "30K",
+            "avg_pace_min_per_km": 13.02
+        },
+        {
+            "segment": "35K",
+            "avg_pace_min_per_km": 12.38
+        },
+        {
+            "segment": "40K",
+            "avg_pace_min_per_km": 12.41
+        }
+    ]
+}
