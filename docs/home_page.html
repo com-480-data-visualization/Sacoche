@@ -56,10 +56,11 @@
         
         .marathon-path {
             fill: none;
-            stroke: #fbbf24;
-            stroke-width: 3;
-            stroke-dasharray: 10, 5;
-            opacity: 0.8;
+            stroke: #3b82f6;
+            stroke-width: 4;
+            stroke-dasharray: 8, 4;
+            opacity: 0.9;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         
         .runner {
@@ -275,13 +276,7 @@
         <svg class="route-svg" viewBox="0 0 1000 600">
             <!-- Parcours réaliste du Boston Marathon -->
             <path id="marathon-route" 
-                  d="M 80 270 
-                     C 120 275, 160 280, 200 285
-                     C 250 290, 300 295, 350 300
-                     C 400 302, 450 298, 500 295
-                     C 550 290, 600 285, 650 275
-                     C 700 265, 750 250, 800 235
-                     C 850 220, 900 210, 920 205"
+                  d=""
                   class="marathon-path"/>
             
             <!-- Coureurs animés avec labels -->
@@ -442,12 +437,30 @@
             
             return { pathData, startPoint: svgCoords[0], endPoint: svgCoords[svgCoords.length - 1] };
         }
-
+        function updateMarkerPositions(result) {
+            // Update start marker position based on actual start point
+            const startMarker = document.querySelector('.start-marker');
+            if (startMarker && result.startPoint) {
+                startMarker.style.left = `${(result.startPoint.x / 1000) * 100}%`;
+                startMarker.style.top = `${(result.startPoint.y / 600) * 100}%`;
+                console.log('📍 Start marker positioned at:', result.startPoint);
+            }
+            
+            // Update finish marker position based on actual end point
+            const finishMarker = document.querySelector('.finish-marker');
+            if (finishMarker && result.endPoint) {
+                finishMarker.style.left = `${(result.endPoint.x / 1000) * 100}%`;
+                finishMarker.style.top = `${(result.endPoint.y / 600) * 100}%`;
+                console.log('🏁 Finish marker positioned at:', result.endPoint);
+            }
+        }
         // Initialize real GPS route
         async function initializeRealRoute() {
+            console.log('🔄 Loading real GPS route...');
+            
             const coordinates = await loadGPXRoute();
             
-            if (coordinates) {
+            if (coordinates && coordinates.length > 0) {
                 const result = convertGPSToSVG(coordinates);
                 
                 if (result && result.pathData) {
@@ -455,22 +468,13 @@
                     const routePath = document.getElementById('marathon-route');
                     routePath.setAttribute('d', result.pathData);
                     
-                    // Update start marker position based on actual start point
-                    const startMarker = document.querySelector('.start-marker');
-                    startMarker.style.left = `${(result.startPoint.x / 1000) * 100}%`;
-                    startMarker.style.top = `${(result.startPoint.y / 600) * 100}%`;
-                    
-                    // Update finish marker position based on actual end point
-                    const finishMarker = document.querySelector('.finish-marker');
-                    finishMarker.style.left = `${(result.endPoint.x / 1000) * 100}%`;
-                    finishMarker.style.top = `${(result.endPoint.y / 600) * 100}%`;
+                    // Update markers positions
+                    updateMarkerPositions(result);
                     
                     console.log('✅ Real GPS route loaded successfully!');
-                    console.log('Start point:', result.startPoint);
-                    console.log('End point:', result.endPoint);
                 }
             } else {
-                console.log('⚠️ Using fallback route design');
+                console.log('⚠️ GPS data not available, keeping empty path');
             }
         }
         function goToDashboard() {
