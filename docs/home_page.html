@@ -8,16 +8,45 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f4 50%, #e9ecef 75%, #f8f9fa 100%);
+            background-size: 400% 400%;
+            animation: subtileGradient 20s ease-in-out infinite;
             min-height: 100vh;
             overflow: hidden;
         }
         
+        /* Animation subtile pour le dégradé */
+        @keyframes subtileGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(108, 117, 125, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(134, 142, 150, 0.02) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(173, 181, 189, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
         .marathon-container {
             position: relative;
             width: 100vw;
             height: 100vh;
-            background: radial-gradient(ellipse at center, #1e40af 0%, #1e3a8a 100%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(222, 226, 230, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(108, 117, 125, 0.06);
         }
         
         .route-svg {
@@ -87,11 +116,13 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            color: #333;
             padding: 20px;
             border-radius: 15px;
-            backdrop-filter: blur(10px);
             max-width: 300px;
         }
         
@@ -121,11 +152,13 @@
             position: absolute;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            color: #333;
             padding: 15px;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
         }
         
         .legend-item {
@@ -228,7 +261,7 @@
     <div class="marathon-container">
         <div class="title-banner">
             <i class="fas fa-running mr-3"></i>
-            Boston Marathon 2024 - Parcours Interactif
+            Boston Marathon - Interactive Itinerary
             <i class="fas fa-running ml-3"></i>
         </div>
         
@@ -239,18 +272,18 @@
             </h3>
             <div class="text-sm space-y-2">
                 <p><strong>Distance:</strong> 42,195 km (26,2 miles)</p>
-                <p><strong>Départ:</strong> Hopkinton, MA</p>
-                <p><strong>Arrivée:</strong> Boston, MA</p>
-                <p><strong>Dénivelé:</strong> -140m</p>
-                <p><strong>Record Masculin:</strong> 2:03:02</p>
-                <p><strong>Record Féminin:</strong> 2:19:59</p>
+                <p><strong>Start:</strong> Hopkinton, MA</p>
+                <p><strong>Finish:</strong> Boston, MA</p>
+                <p><strong>Altitude difference:</strong> -140m</p>
+                <p><strong>Men's record:</strong> 2:03:02</p>
+                <p><strong>Women's record:</strong> 2:19:59</p>
             </div>
         </div>
         
         <div class="click-instruction">
             <i class="fas fa-mouse-pointer mr-2"></i>
             <strong>Instructions:</strong><br>
-            Cliquez sur un point de coureur pour voir les statistiques du niveau correspondant
+            Click on a runner's point to see the statistics for the corresponding level.
         </div>
         
         <svg class="route-svg" viewBox="0 0 1000 600">
@@ -272,7 +305,7 @@
                         <mpath href="#marathon-route"/>
                     </animateMotion>
                 </circle>
-                <text class="runner-label">D</text>
+                <text class="runner-label">B</text>
             </g>
             
             <g class="runner-group" data-level="Intermédiaire">
@@ -299,7 +332,7 @@
                         <mpath href="#marathon-route"/>
                     </animateMotion>
                 </circle>
-                <text class="runner-label">É</text>
+                <text class="runner-label">E</text>
             </g>
         </svg>
         
@@ -323,30 +356,30 @@
         <div class="legend">
             <h4 class="font-bold mb-2">
                 <i class="fas fa-users mr-2"></i>
-                Niveaux de Coureurs
+                Runner levels
             </h4>
             <div class="legend-item" onclick="goToStats('Débutant')">
                 <div class="legend-color" style="background: #10b981;"></div>
-                <span>Débutant (4h+) - D</span>
+                <span>Beginner (4h+) - B</span>
             </div>
             <div class="legend-item" onclick="goToStats('Intermédiaire')">
                 <div class="legend-color" style="background: #3b82f6;"></div>
-                <span>Intermédiaire (3h-4h) - I</span>
+                <span>Intermediate (3h-4h) - I</span>
             </div>
             <div class="legend-item" onclick="goToStats('Avancé')">
                 <div class="legend-color" style="background: #f59e0b;"></div>
-                <span>Avancé (2h30-3h) - A</span>
+                <span>Advanced (2h30-3h) - A</span>
             </div>
             <div class="legend-item" onclick="goToStats('Elite')">
                 <div class="legend-color" style="background: #ef4444;"></div>
-                <span>Élite (2h-2h30) - É</span>
+                <span>Elite (2h-2h30) - E</span>
             </div>
         </div>
         
         <!-- Bouton vers le dashboard -->
         <a href="#" class="dashboard-btn" onclick="goToDashboard()">
             <i class="fas fa-chart-bar mr-2"></i>
-            Voir les statistiques
+            See statistics
         </a>
         
         <!-- Tooltip -->
