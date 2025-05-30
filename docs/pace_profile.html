@@ -169,7 +169,7 @@
 
         .calculate-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #4a5fc1;
             color: white;
             border: none;
             padding: 18px 30px;
@@ -329,6 +329,36 @@
             text-align: center;
         }
 
+        .filters-container {
+                background: #f8f9fa; /* Blanc cassé foncé */
+                border: 2px solid #e9ecef; /* Bordure gris clair */
+                border-radius: 20px;
+                padding: 25px;
+                margin-top: 20px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Ombre légère */
+                transition: all 0.3s ease;
+            }
+
+            .filters-container:hover {
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+                transform: translateY(-2px);
+            }
+
+            .filters-title {
+                font-size: 18px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+                border-bottom: 2px solid #667eea;
+                text-align: center;
+            }
+
+            .filters-title i {
+                color: #667eea;
+                margin-right: 8px;
+            }
+
         @media (max-width: 768px) {
             .calculator-container {
                 flex-direction: column;
@@ -337,7 +367,7 @@
             .input-panel {
                 flex: none;
             }
-            
+
             .pace-grid {
                 grid-template-columns: 1fr;
             }
@@ -458,54 +488,61 @@
                     Get personalized pacing strategy based on real Boston Marathon data
                 </div>
 
-                <form id="paceForm">
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-user mr-2"></i>
-                            Gender
-                        </label>
-                        <div class="gender-options">
-                            <div class="gender-option">
-                                <input type="radio" id="male" name="gender" value="Homme" class="gender-radio" required>
-                                <label for="male" class="gender-label">
-                                    <i class="fas fa-mars mr-2"></i>
-                                    Male
-                                </label>
-                            </div>
-                            <div class="gender-option">
-                                <input type="radio" id="female" name="gender" value="Femme" class="gender-radio" required>
-                                <label for="female" class="gender-label">
-                                    <i class="fas fa-venus mr-2"></i>
-                                    Female
-                                </label>
+                <!-- NOUVEAU CADRE POUR LES FILTRES -->
+                <div class="filters-container">
+                    <div class="filters-title">
+                        <i class="fas fa-sliders-h"></i>
+                        Race Configuration
+                    </div>
+                
+                    <form id="paceForm">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-user mr-2"></i>
+                                Gender
+                            </label>
+                            <div class="gender-options">
+                                <div class="gender-option">
+                                    <input type="radio" id="male" name="gender" value="Homme" class="gender-radio" required>
+                                    <label for="male" class="gender-label">
+                                        <i class="fas fa-mars mr-2"></i>
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="gender-option">
+                                    <input type="radio" id="female" name="gender" value="Femme" class="gender-radio" required>
+                                    <label for="female" class="gender-label">
+                                        <i class="fas fa-venus mr-2"></i>
+                                        Female
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-target mr-2"></i>
-                            Target Time (3h10 - 8h00)
-                        </label>
-                        <div class="time-input-container">
-                            <input type="number" id="hours" class="time-input" min="3" max="8" value="4" required>
-                            <span class="time-separator">h</span>
-                            <input type="number" id="minutes" class="time-input" min="0" max="59" step="5" value="0" required>
-                            <span class="time-separator">min</span>
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-target mr-2"></i>
+                                Target Time (3h10 - 8h00)
+                            </label>
+                            <div class="time-input-container">
+                                <input type="number" id="hours" class="time-input" min="3" max="8" value="4" required>
+                                <span class="time-separator">h</span>
+                                <input type="number" id="minutes" class="time-input" min="0" max="59" step="5" value="0" required>
+                                <span class="time-separator">min</span>
+                            </div>
+                            <small style="color: #666; margin-top: 5px; display: block;">
+                                <i class="fas fa-clock mr-1"></i>
+                                Minutes in 5-minute increments (0, 5, 10, 15, etc.)
+                            </small>
                         </div>
-                        <small style="color: #666; margin-top: 5px; display: block;">
-                            <i class="fas fa-clock mr-1"></i>
-                            Minutes in 5-minute increments (0, 5, 10, 15, etc.)
-                        </small>
-                    </div>
 
-                    <button type="submit" class="calculate-btn">
-                        <i class="fas fa-calculator mr-2"></i>
-                        Calculate My Paces
-                    </button>
-                </form>
+                        <button type="submit" class="calculate-btn">
+                            <i class="fas fa-calculator mr-2"></i>
+                            Calculate My Paces
+                        </button>
+                    </form>
+                </div> <!-- CETTE LIGNE FERME LE filters-container -->
             </div>
-
             <div class="results-panel">
                 <div id="results-content">
                     <div class="no-results">
