@@ -18,7 +18,6 @@
             overflow: hidden;
         }
         
-        /* Animation subtile pour le dégradé */
         @keyframes subtileGradient {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -40,14 +39,13 @@
         
         #background-rect {
             filter: brightness(0.9) contrast(1.1);
-            /* Assombrit légèrement la carte pour mieux voir le tracé */
         }
 
         .marathon-path {
-            stroke: #ff4444 !important;      /* Rouge vif pour contraster */
+            stroke: #ff4444 !important;      /* Rouge vif */
             stroke-width: 3 !important;      /* Plus épais */
             stroke-dasharray: 8 4 !important; 
-            filter: drop-shadow(0 0 3px rgba(255,255,255,0.8)); /* Ombre blanche */
+            filter: drop-shadow(0 0 3px rgba(255,255,255,0.8));
             opacity: 1 !important;
         }
 
@@ -137,9 +135,9 @@
             position: absolute;
             top: 70px;
             left: 40px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(249, 247, 241, 0.95);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(240, 237, 230, 0.4);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             color: #333;
             padding: 20px;
@@ -155,7 +153,7 @@
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transform: translate(-50%, -50%); /* Centre le marqueur sur la position */
-            white-space: nowrap; /* Évite le retour à la ligne */
+            white-space: nowrap;
             z-index: 10;
         }
 
@@ -173,14 +171,15 @@
             position: absolute;
             bottom: 5px;
             right: 40px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(249, 247, 241, 0.95);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(240, 237, 230, 0.4);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             color: #333;
             padding: 15px;
             border-radius: 10px;
         }
+
         
         .legend-item {
             display: flex;
@@ -235,9 +234,8 @@
 
         .dashboard-btn:hover {
             background: #2563eb;
-            transform: translateY(-3px) scale(1.02); /* Utiliser scale au lieu de font-size */
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
-            /* Supprimer: font-size: 19px; */
         }
 
 
@@ -258,9 +256,8 @@
 
         .pace-profile-btn:hover {
             background: #1766c1;
-            transform: translateY(-3px) scale(1.02); /* Utiliser scale au lieu de font-size */
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 25px rgba(39, 72, 219, 0.6);
-            /* Supprimer: font-size: 19px; */
         }
         
         .tooltip {
@@ -289,15 +286,14 @@
             max-width: 250px;
         }
 
-        /* Nouvelle boîte centrée pour le texte et les boutons */
         .action-box {
             position: absolute;
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(249, 247, 241, 0.95);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(240, 237, 230, 0.4);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             padding: 30px;
@@ -317,10 +313,10 @@
         .buttons-container {
             display: flex;
             justify-content: center;
-            align-items: center; /* Ajouter pour aligner verticalement */
+            align-items: center;
             gap: 20px;
-            flex-wrap: nowrap; /* Changer de wrap à nowrap */
-            min-height: 60px; /* Ajouter une hauteur minimale */
+            flex-wrap: nowrap;
+            min-height: 60px;
         }
     </style>
 </head>
@@ -328,7 +324,7 @@
     <div class="marathon-container">
         <div class="title-banner">
             <i class="fas fa-running mr-3"></i>
-            Boston Marathon Itinerary
+            My Boston Marathon
             <i class="fas fa-running ml-3"></i>
         </div>
         
@@ -359,12 +355,10 @@
         </div>
         
         <svg class="route-svg" viewBox="0 0 1000 600">
-            <!-- Parcours réaliste du Boston Marathon -->
             <path id="marathon-route" 
                   d=""
                   class="marathon-path"/>
             
-            <!-- Coureurs animés avec labels -->
             <g class="runner-group" data-level="Beginner">
                 <circle class="runner runner-debutant" r="12">
                     <animateMotion dur="30s" repeatCount="indefinite">
@@ -402,7 +396,6 @@
             </g>
         </svg>
         
-        <!-- Marqueurs de lieu -->
         <div class="location-marker start-marker" onclick="restartRace()" style="cursor: pointer;">
             <i class="fas fa-play mr-2"></i>
             START - Hopkinton
@@ -413,7 +406,6 @@
             FINISH - Boston
         </div>
         
-        <!-- Légende des coureurs -->
         <div class="legend">
             <h4 class="font-bold mb-2">
                 <i class="fas fa-users mr-2"></i>
@@ -437,7 +429,6 @@
             </div>
         </div>
         
-        <!-- Nouvelle boîte d'action centrée -->
         <div class="action-box">
             <div class="action-text">
                 <strong>The legendary Boston Marathon awaits you! Transform your running dreams into a winning strategy with our personalized race planner.</strong><br><br>
@@ -457,7 +448,6 @@
             </div>
         </div>
         
-        <!-- Tooltip -->
         <div class="tooltip" id="tooltip"></div>
     </div>
     
@@ -465,10 +455,9 @@
         // Function to load and parse GPX file
         async function loadGPXRoute() {
             try {
-                const response = await fetch('boston-marathon.gpx'); // Remplacez par le nom de votre fichier
+                const response = await fetch('boston-marathon.gpx'); // File name of the GPX file
                 const gpxText = await response.text();
                 
-                // Parse GPX XML
                 const parser = new DOMParser();
                 const gpxXML = parser.parseFromString(gpxText, 'text/xml');
                 
@@ -491,13 +480,11 @@
             }
         }
 
-        // Créer un tracé par défaut basé sur les coordonnées connues du Boston Marathon
         function createDefaultPath() {
             console.log('🔄 Creating default Boston Marathon path...');
             
-            // 📍 Coordonnées EXACTES avec votre ligne de départ/arrivée
             const waypoints = [
-                { lat: 42.229974, lon: -71.518018 }, // 🏁 DÉPART exact
+                { lat: 42.229974, lon: -71.518018 }, // DÉPART exact
                 { lat: 42.25139, lon: -71.47189 },   // Ashland
                 { lat: 42.27432, lon: -71.42496 },   // Framingham  
                 { lat: 42.2823, lon: -71.38369 },    // Natick
@@ -505,14 +492,13 @@
                 { lat: 42.31005, lon: -71.27682 },   // Newton
                 { lat: 42.32532, lon: -71.25768 },   // Newton Hills
                 { lat: 42.33946, lon: -71.23356 },   // Heartbreak Hill
-                { lat: 42.349701, lon: -71.078780 }  // 🏆 ARRIVÉE exacte
+                { lat: 42.349701, lon: -71.078780 }  // ARRIVÉE exacte
             ];
             
-            // 🎯 Limites exactes avec vos coordonnées
-            const minLat = 42.229974;  // Votre départ
-            const maxLat = 42.349701;  // Votre arrivée
-            const minLon = -71.518018; // Votre départ
-            const maxLon = -71.078780; // Votre arrivée
+            const minLat = 42.229974;
+            const maxLat = 42.349701;
+            const minLon = -71.518018;
+            const maxLon = -71.078780;
             
             // Convertir en coordonnées SVG
             const svgCoords = waypoints.map(point => {
@@ -521,17 +507,14 @@
                 return { x: Math.round(x), y: Math.round(y) };
             });
             
-            // Créer le chemin SVG
             let pathData = `M ${svgCoords[0].x} ${svgCoords[0].y}`;
             for (let i = 1; i < svgCoords.length; i++) {
                 pathData += ` L ${svgCoords[i].x} ${svgCoords[i].y}`;
             }
             
-            // Mettre à jour le tracé
             const routePath = document.getElementById('marathon-route');
             routePath.setAttribute('d', pathData);
             
-            // Positionner les marqueurs
             updateMarkerPositions({
                 startPoint: svgCoords[0],
                 endPoint: svgCoords[svgCoords.length - 1]
@@ -555,8 +538,7 @@
             const minLon = -71.518018;
             const maxLon = -71.078780;
             
-            // 🎯 AUGMENTER le padding pour réduire la taille du tracé
-            const padding = 200;  // ⬅️ AUGMENTEZ (était 100)
+            const padding = 200;
             
             const svgCoords = coordinates.map(coord => {
                 const x = padding + ((coord.lon - minLon) / (maxLon - minLon)) * (svgWidth - 2 * padding);
@@ -564,7 +546,6 @@
                 return { x: Math.round(x), y: Math.round(y) };
             });
             
-            // Reste du code identique...
             let pathData = `M ${svgCoords[0].x} ${svgCoords[0].y}`;
             const simplificationFactor = Math.max(1, Math.floor(svgCoords.length / 200));
             
@@ -580,28 +561,24 @@
             
             const svg = document.querySelector('.route-svg');
             
-            // Créer les éléments SVG nécessaires
             const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
             const pattern = document.createElementNS('http://www.w3.org/2000/svg', 'pattern');
             const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
             const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
             
-            // Configuration du pattern
             pattern.setAttribute('id', 'map-background');
             pattern.setAttribute('patternUnits', 'userSpaceOnUse');
             pattern.setAttribute('width', '1000');
             pattern.setAttribute('height', '600');
             
-            // 🎯 Configuration de l'image Google Maps
-            image.setAttribute('href', 'boston-marathon-map.jpg'); // ← VOTRE IMAGE
+            image.setAttribute('href', 'boston-marathon-map.jpg');
             image.setAttribute('x', '0');
             image.setAttribute('y', '0');
             image.setAttribute('width', '1000');
             image.setAttribute('height', '600');
-            image.setAttribute('opacity', '0.8'); // Légèrement transparent
-            image.setAttribute('preserveAspectRatio', 'xMidYMid slice'); // Remplit tout l'espace
+            image.setAttribute('opacity', '0.8');
+            image.setAttribute('preserveAspectRatio', 'xMidYMid slice');
             
-            // Configuration du rectangle de fond
             rect.setAttribute('width', '1000');
             rect.setAttribute('height', '600');
             rect.setAttribute('fill', 'url(#map-background)');
@@ -616,7 +593,7 @@
             
             image.addEventListener('error', function() {
                 console.log('❌ Failed to load Google Maps image');
-                rect.setAttribute('fill', '#e8f4f8'); // Couleur de fallback
+                rect.setAttribute('fill', '#e8f4f8');
                 const loading = document.getElementById('mapLoading');
                 if (loading) {
                     loading.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Image not found - Check filename';
@@ -624,11 +601,9 @@
                 }
             });
             
-            // Assembler les éléments
             pattern.appendChild(image);
             defs.appendChild(pattern);
             
-            // Insérer au début du SVG
             svg.insertBefore(defs, svg.firstChild);
             svg.insertBefore(rect, svg.querySelector('#marathon-route'));
             
@@ -716,16 +691,15 @@
                     newCircleAnimation.beginElement();
                     newTextAnimation.beginElement();
                     
-                }, 50); // Small delay to ensure DOM updates
+                }, 50);
             });
             
-            console.log('✅ Race simulation restarted!');
+            console.log('Race simulation restarted!');
         }
         // Initialize real GPS route
         async function initializeRealRoute() {
-            console.log('🔄 Loading real GPS route...');
+            console.log(' Loading real GPS route...');
             
-            // 🗺️ Charger la carte Google Maps
             addMapBackground();
             
             const coordinates = await loadGPXRoute();
@@ -737,10 +711,10 @@
                     const routePath = document.getElementById('marathon-route');
                     routePath.setAttribute('d', result.pathData);
                     updateMarkerPositions(result);
-                    console.log('✅ Real GPS route loaded successfully!');
+                    console.log('Real GPS route loaded successfully!');
                 }
             } else {
-                console.log('⚠️ GPS data not available, using default path');
+                console.log('GPS data not available, using default path');
                 createDefaultPath();
             }
         }
@@ -749,14 +723,10 @@
         }
         
         function goToStats(level) {
-            // Navigate to stats page with runner level filter
             window.location.href = `stats.html?runnerLevel=${encodeURIComponent(level)}`;
         }
-        
-        // Animation automatique en boucle et gestion des clics
-        // Animation automatique en boucle et gestion des clics
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize real GPS route first
             initializeRealRoute();
             
             const runnerGroups = document.querySelectorAll('.runner-group');
@@ -767,7 +737,6 @@
                 const text = group.querySelector('.runner-label');
                 const level = group.getAttribute('data-level');
                 
-                // Synchroniser le texte avec le cercle
                 const animateMotion = circle.querySelector('animateMotion');
                 if (animateMotion) {
                     const textAnimateMotion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
@@ -780,12 +749,10 @@
                     text.appendChild(textAnimateMotion);
                 }
                 
-                // Gestion du clic sur le groupe de coureur
                 group.addEventListener('click', function() {
                     goToStats(level);
                 });
                 
-                // Gestion du hover
                 group.addEventListener('mouseenter', function(e) {
                     tooltip.style.opacity = '1';
                     tooltip.innerHTML = `<strong>${level}</strong><br>Click to see the stats`;
