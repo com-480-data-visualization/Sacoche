@@ -50,7 +50,6 @@
     h1 { 
       text-align: center; 
       color: #4ca1dd;
-      /*text-shadow: 2px 2px 4px rgba(0,0,0,0.3);*/
       font-size: 2.5em;
       margin-bottom: 10px;
     }
@@ -67,23 +66,18 @@
     }
     
     :root {
-      /* your new soft cream background */
       --bg-soft: #F9F7F1;
       --card-padding: 12px;
       --card-gap:     20px;
     }
 
-    /* make *every* .card use that color and drop its shadow/border */
     .card {
       background-color: var(--bg-soft) !important;
       box-shadow: none           !important;
       border: none               !important;
-        /* shrink each block a little */
       padding: var(--card-padding) !important;
-      /* give them breathing room */
       margin-bottom: var(--card-gap)   !important;
       
-      /* optional: constrain their width so they don’t stretch full‐width */
       max-width: 95%;
       margin-left: auto;
       margin-right: auto;
@@ -269,24 +263,20 @@
       box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
     }
 
-    /* right in your <style> block */
     #splitSpeedCard {
-      /* fix the card’s height */
       height: 400px;
       position: relative;
-        /* add extra padding at the top: */
-      padding-top: 24px !important;        /* so absolutely-positioned children anchor here */
+      padding-top: 24px !important;
     }
 
 
     #splitSpeedChart {
       position: absolute;
-      top: 60px;        /* ← push the chart down below the title/divider */
+      top: 60px;
       left: 25px;
       right: 10px;
-      bottom: 0;        /* ← still fill to the bottom of the card */
+      bottom: 0;
       width: 100% !important;
-      /* remove height:100% if you like; top+bottom anchoring is enough */
     }
 
     #statsPanel,
@@ -299,8 +289,7 @@
     }
 
     input, select, button {
-      background-color: #fff; /* keep these white for contrast */
-      /* or you could also give them var(--bg-soft) + a border */
+      background-color: #fff;
     }
 
   </style>
@@ -397,7 +386,6 @@
         <h2>📈 Performance by Age Group & Level</h2>
         <canvas id="finishTimeChart"></canvas>
       </div>
-            <!-- ─── Split-Speed Evolution Chart ─── -->
       <div id="splitSpeedCard" class="card" style="margin-top:20px;">
         <h2>⏱️ Split Speed Evolution</h2>
         <canvas id="splitSpeedChart"></canvas>
@@ -413,7 +401,6 @@
     // Age range mappings
     const ageRanges = ["18-29", "30-39", "40-49", "50-59", "60-69", "70+"];
     
-    // Function to get URL parameters
     function getURLParameters() {
       const urlParams = new URLSearchParams(window.location.search);
       return {
@@ -424,7 +411,6 @@
       };
     }
     
-    // Function to apply URL parameters to filters
     function applyURLFilters() {
       const params = getURLParameters();
       console.log('🔗 URL Parameters detected:', params);
@@ -432,12 +418,9 @@
       let filterApplied = false;
       let appliedFilters = [];
       
-      // Apply runner level filter
       if (params.runnerLevel) {
-        // First deselect all levels
         document.querySelectorAll('input[name="level"]').forEach(cb => cb.checked = false);
         
-        // Then select the specific level from URL
         const levelCheckbox = document.querySelector(`input[name="level"][value="${params.runnerLevel}"]`);
         if (levelCheckbox) {
           levelCheckbox.checked = true;
@@ -483,21 +466,19 @@
         console.log('✅ Applied year filter:', params.year);
       }
       
-      // Show applied filter message
       if (filterApplied) {
         const messageElement = document.getElementById('filterAppliedMessage');
         const textElement = document.getElementById('filterAppliedText');
         textElement.textContent = `🎯 Auto-applied filters: ${appliedFilters.join(', ')}`;
         messageElement.style.display = 'block';
         console.log('🎯 Applied filters from URL:', appliedFilters);
-        
-        // Apply the filters immediately
+      
         setTimeout(() => {
           updateDashboard();
         }, 100);
       }
     }
-    // Utility functions for time conversion
+
     function timeToSeconds(timeStr) {
         if (!timeStr || timeStr === '-') return 0;
         
@@ -531,7 +512,7 @@
         }
         
         const data = await response.json();
-        console.log('✅ JSON data loaded successfully:', data);
+        console.log('JSON data loaded successfully:', data);
         
         // Validate data structure
         if (!data || typeof data !== 'object') {
@@ -557,23 +538,19 @@
         
         marathonStats = data;
         
-        // Show success message and data info
         showDataInfo();
         
-        // Hide loading message and show main content
         document.getElementById('loadingMessage').style.display = 'none';
         document.getElementById('main').style.display = 'flex';
         
-        // Initialize the app
         initializeApp();
         
-        // Apply URL filters after initialization
         applyURLFilters();
         
-        console.log('🎉 Dashboard initialized successfully!');
+        console.log('Dashboard initialized successfully!');
         
       } catch (error) {
-        console.error('❌ Error loading marathon data:', error);
+        console.error('Error loading marathon data:', error);
         showErrorMessage(`Failed to load data: ${error.message}`);
       }
     }
@@ -581,7 +558,7 @@
     function showErrorMessage(message) {
       document.getElementById('loadingMessage').innerHTML = `
         <div class="error-message">
-          <h3>❌ Error Loading Data</h3>
+          <h3>Error Loading Data</h3>
           <p>${message}</p>
           <p>Please ensure the file 'stats_marathon_2015_2017.json' is in the same directory as this HTML file.</p>
           <button onclick="location.reload()" style="margin-top: 10px; padding: 8px 16px; background: white; color: #e74c3c; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
@@ -615,7 +592,6 @@
         yearSelect.appendChild(opt);
       });
       
-      // Select the first year by default
       yearSelect.value = years[0];
       
       setupEventListeners();
@@ -627,7 +603,7 @@
       document.getElementById("yearSelect").addEventListener("change", updateDashboard);
       document.getElementById("ageRangeSlider").addEventListener("input", function() {
         updateAgeRangeDisplay();
-        updateDashboard(); // Mise à jour automatique
+        updateDashboard();
       });
       document.querySelectorAll('input[name="gender"]').forEach(checkbox => {
         checkbox.addEventListener("change", updateDashboard);
@@ -698,7 +674,7 @@
       const yearData = marathonStats[selectedYear];
       
       if (!yearData) {
-        console.error('❌ No data for selected year:', selectedYear);
+        console.error('No data for selected year:', selectedYear);
         return;
       }
       
@@ -829,7 +805,7 @@
       const datasets = levels.map(level => ({
         label: level,
         data: chartData[level],
-        backgroundColor: colors[level] + '80', // Add transparency
+        backgroundColor: colors[level] + '80',
         borderColor: colors[level],
         borderWidth: 2,
         borderRadius: 4,
@@ -873,7 +849,6 @@
               borderWidth: 1,
               callbacks: {
                 afterLabel: function(context) {
-                  // Find the segment for additional info
                   const segment = segments.find(s => 
                     s.age_range === context.label && s.level === context.dataset.label
                   );
@@ -925,7 +900,6 @@
       console.log('📈 Chart updated with', segments.length, 'segments');
     }
 
-        // ─── Load the split-time JSON ───
     async function loadSplitTimeData() {
       try {
         const resp = await fetch("stats_split_time.json");
@@ -938,7 +912,6 @@
       }
     }
 
-    // ─── Filter split-time data by the same UI filters ───
     function getSplitFilteredData() {
       if (!splitStats) return [];
       const year = document.getElementById("yearSelect").value;
@@ -958,7 +931,6 @@
       });
     }
 
-    // 3) Revamped updateSplitChart
     function updateSplitChart(datasets, labels) {
       const canvas = document.getElementById("splitSpeedChart");
       const ctx = canvas.getContext("2d");
@@ -966,24 +938,22 @@
 
       const chartHeight = canvas.height;
 
-      // build Chart.js datasets with gradients, line styling, markers…
       const styledDatasets = datasets.map(ds => {
         const baseColor = levelColors[ds.label];
-        // create a vertical gradient for the fill
         const gradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
         gradient.addColorStop(0, hexToRgba(baseColor, 0.1));
         gradient.addColorStop(1, hexToRgba(baseColor, 0.02));
         return {
           label: ds.label,
           data: ds.data,
-          fill: true,                     // fill under the line
+          fill: true,
           backgroundColor: gradient,
           borderColor: baseColor,
-          borderWidth: 3,                 // nice thick line
-          tension: 0.4,                   // smoother curves
+          borderWidth: 3,
+          tension: 0.4,
           pointRadius: 5,
           pointHoverRadius: 7,
-          pointBackgroundColor: baseColor + '80',   // white center
+          pointBackgroundColor: baseColor + '80',
           pointBorderColor: baseColor,
           pointBorderWidth: 2
         };
@@ -1046,13 +1016,12 @@
     }
 
     const levelColors = {
-      "Elite":         "#F87171",  // red
-      "Advanced":      "#FBBF24",  // gold
-      "Intermediate":  "#60A5FA",  // blue
-      "Beginner":      "#4ADE80"   // green
+      "Elite":         "#F87171",
+      "Advanced":      "#FBBF24",
+      "Intermediate":  "#60A5FA",
+      "Beginner":      "#4ADE80" 
     };
 
-    // 2) Utility to make an RGBA from a hex
     function hexToRgba(hex, alpha) {
       const bigint = parseInt(hex.slice(1), 16);
       const r = (bigint >> 16) & 255;
@@ -1098,11 +1067,6 @@
       updateSplitChart(datasets, labels);
     }
 
-
-
-
-
-    // Start loading data when page loads
     document.addEventListener('DOMContentLoaded', function() {
       console.log('🚀 Page loaded, starting data load...');
       loadMarathonData();
@@ -1110,7 +1074,6 @@
 
     });
     
-    // Also try to load data immediately in case DOMContentLoaded already fired
     loadMarathonData();
   </script>
 </body>
