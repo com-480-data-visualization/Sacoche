@@ -327,28 +327,6 @@
             text-align: center;
         }
 
-        .marathon-visual {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 15px;
-            color: white;
-        }
-
-        .marathon-point {
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .marathon-distance {
-            font-size: 10px;
-            opacity: 0.8;
-        }
-
         @media (max-width: 768px) {
             .calculator-container {
                 flex-direction: column;
@@ -939,39 +917,7 @@
                     </div>
                 </div>
 
-                <div class="marathon-visual">
-                    <div class="marathon-point">
-                        <i class="fas fa-play"></i>
-                        <div class="marathon-distance">START</div>
-                    </div>
-                    <div class="marathon-point">
-                        <i class="fas fa-mountain"></i>
-                        <div class="marathon-distance">HILLS</div>
-                    </div>
-                    <div class="marathon-point">
-                        <i class="fas fa-fire"></i>
-                        <div class="marathon-distance">WALL</div>
-                    </div>
-                    <div class="marathon-point">
-                        <i class="fas fa-flag-checkered"></i>
-                        <div class="marathon-distance">FINISH</div>
-                    </div>
-                </div>
-
-                <div class="pace-grid">
-                    ${segments.map(segment => `
-                        <div class="pace-segment">
-                            <div class="segment-title">
-                                <i class="fas fa-route mr-1"></i>
-                                ${segment.title}
-                            </div>
-                            <div class="segment-pace">${paces[segment.key] || 'N/A'}</div>
-                            <div class="segment-distance">${segment.distance}</div>
-                        </div>
-                    `).join('')}
-                </div>
-
-                <!-- Graphique de stratégie d'allure -->
+                  <!-- Graphique de stratégie d'allure -->
                 <div id="paceStrategyCard">
                     <div class="strategy-header">
                         <h3>
@@ -985,6 +931,18 @@
                     <canvas id="paceStrategyChart"></canvas>
                 </div>
 
+                <div class="pace-grid">
+                    ${segments.map(segment => `
+                        <div class="pace-segment">
+                            <div class="segment-title">
+                                <i class="fas fa-route mr-1"></i>
+                                ${segment.title}
+                            </div>
+                            <div class="segment-pace">${paces[segment.key] ? paces[segment.key] + ' min/km' : 'N/A'}</div>
+                            <div class="segment-distance">${segment.distance}</div>
+                        </div>
+                    `).join('')}
+                </div>
                 <div style="margin-top: 30px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 15px; text-align: center;">
                     <i class="fas fa-lightbulb mr-2" style="color: #667eea;"></i>
                     <strong>Pro Tip:</strong> These paces are based on successful Boston Marathon finishers. 
