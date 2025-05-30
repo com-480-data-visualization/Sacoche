@@ -218,9 +218,6 @@
         }
         
         .dashboard-btn {
-            position: absolute;
-            bottom: 80px;
-            left: calc(50% - 250px);
             background: #3b82f6;
             color: white;
             padding: 16px 32px;
@@ -232,19 +229,19 @@
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
             min-width: 200px;
             text-align: center;
+            display: inline-block;
         }
+
 
         .dashboard-btn:hover {
             background: #2563eb;
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02); /* Utiliser scale au lieu de font-size */
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
-            font-size: 19px;
+            /* Supprimer: font-size: 19px; */
         }
 
+
         .pace-profile-btn {
-            position: absolute;
-            bottom: 80px;
-            left: calc(50% + 50px);
             background: #2107e3;
             color: white;
             padding: 16px 32px;
@@ -256,13 +253,14 @@
             box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
             min-width: 200px;
             text-align: center;
+            display: inline-block;
         }
 
         .pace-profile-btn:hover {
             background: #1b0478;
-            transform: translateY(-3px);     /* ← Uniformisé: mouvement vers le haut */
-            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.6); /* ← Uniformisé: même intensité d'ombre */
-            font-size: 19px;                /* ← Même augmentation de taille */
+            transform: translateY(-3px) scale(1.02); /* Utiliser scale au lieu de font-size */
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.6);
+            /* Supprimer: font-size: 19px; */
         }
         
         .tooltip {
@@ -289,6 +287,40 @@
             backdrop-filter: blur(10px);
             font-size: 12px;
             max-width: 250px;
+        }
+
+        /* Nouvelle boîte centrée pour le texte et les boutons */
+        .action-box {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            text-align: center;
+            z-index: 20;
+        }
+
+        .action-text {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Ajouter pour aligner verticalement */
+            gap: 20px;
+            flex-wrap: nowrap; /* Changer de wrap à nowrap */
+            min-height: 60px; /* Ajouter une hauteur minimale */
         }
     </style>
 </head>
@@ -405,17 +437,25 @@
             </div>
         </div>
         
-        <!-- Bouton vers le dashboard -->
-        <a href="#" class="dashboard-btn" onclick="goToDashboard()">
-            <i class="fas fa-chart-bar mr-2"></i>
-            See general statistics
-        </a>
+        <!-- Nouvelle boîte d'action centrée -->
+        <div class="action-box">
+            <div class="action-text">
+                Vous qui avez toujours rêvé de faire le mythique marathon de Boston, il est temps de passer le pas avec notre créateur de stratégie personnalisé !!<br><br>
+                Vous pouvez aussi regarder les statistiques générales des participants au cours des dernières éditions.
+            </div>
+            
+            <div class="buttons-container">
+                <a href="#" class="dashboard-btn" onclick="goToDashboard()">
+                    <i class="fas fa-chart-bar mr-2"></i>
+                    See general statistics
+                </a>
 
-        <!-- Nouveau bouton vers pace profile -->
-        <a href="#" class="pace-profile-btn" onclick="goToPaceProfile()">
-            <i class="fas fa-tachometer-alt mr-2"></i>
-            Personnal Pace Strategy
-        </a>
+                <a href="#" class="pace-profile-btn" onclick="goToPaceProfile()">
+                    <i class="fas fa-tachometer-alt mr-2"></i>
+                    Personal Pace Strategy
+                </a>
+            </div>
+        </div>
         
         <!-- Tooltip -->
         <div class="tooltip" id="tooltip"></div>
