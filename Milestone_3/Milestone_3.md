@@ -49,13 +49,17 @@ Three interactive components for exploring Boston Marathon data:
 └── stats_split_time.json                  # Split timing data
 ```
 
-#### Online (Recommended)
+### Online (Recommended)
 
 Visit: [https://com-480-data-visualization.github.io/Sacoche/home_page.html](https://com-480-data-visualization.github.io/Sacoche/home_page.html)
 
 ### Local Development
 
 1. Clone repository
+   ```bash
+   git clone https://github.com/com-480-data-visualization/Sacoche.git
+   cd Sacoche
+
 2. Start local server:
    ```bash
    python -m http.server 8000
@@ -88,14 +92,6 @@ Visit: [https://com-480-data-visualization.github.io/Sacoche/home_page.html](htt
 - **Marathon Runners:** Race planning and performance analysis  
 - **Data Enthusiasts:** Interactive exploration of athletic performance data  
 - **Educators:** Real-world data visualization examples  
-
----
-
-### Browser Requirements
-A modern browser with:  
-- JavaScript ES6+  
-- SVG animations  
-- CSS Grid support  
 
 ---
 
