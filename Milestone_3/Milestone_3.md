@@ -7,7 +7,7 @@
 An interactive data visualization exploring the Boston Marathon through race statistics, personalized pacing strategies, and animated course visualization.
 
 **Live Demo:** [Sacoche Home Page](https://com-480-data-visualization.github.io/Sacoche/home_page.html)
-
+**Video:** https://drive.google.com/file/d/1JOtgCxT61zZRbDrfkIpc0pJlROQd6mIf/view?usp=drive_link
 ---
 
 ### Overview
