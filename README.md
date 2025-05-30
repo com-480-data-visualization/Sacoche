@@ -53,7 +53,6 @@ Please, fill the following sections about your project.
 ## Milestone 3 (30th May, 5pm)
 
 **80% of the final grade**
-[View the Website](https://com-480-data-visualization.github.io/Sacoche/home_page.html)
 
 ## Late policy
 
