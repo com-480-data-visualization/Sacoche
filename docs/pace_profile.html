@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boston Marathon - Pace Calculator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -365,6 +366,73 @@
                 font-size: 2em;
             }
         }
+
+        #paceStrategyCard {
+            height: 400px;
+            position: relative;
+            padding-top: 24px !important;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        #paceStrategyCard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #paceStrategyCard:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #paceStrategyCard:hover::before {
+            opacity: 1;
+        }
+
+        #paceStrategyChart {
+            position: absolute;
+            top: 80px;
+            left: 25px;
+            right: 10px;
+            bottom: 20px;
+            width: calc(100% - 35px) !important;
+            z-index: 1;
+        }
+
+        .strategy-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            position: relative;
+            z-index: 1;
+        }
+
+        .strategy-header h3 {
+            color: #333;
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .strategy-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -445,6 +513,7 @@
 
     <script>
         let paceData = null;
+        let currentPaceChart = null;
 
         // Load pace data from JSON file
         async function loadPaceData() {
@@ -479,6 +548,136 @@
             return `${hours}:${minutes.toString().padStart(2, '0')}:00`;
         }
 
+        // Fonction pour convertir le temps de pace (min:sec/km) en vitesse (km/h)
+        function paceToSpeed(paceString) {
+            if (!paceString || paceString === 'N/A') return 0;
+            
+            // Format attendu: "5:30" (5 minutes 30 secondes par km)
+            const parts = paceString.split(':');
+            if (parts.length !== 2) return 0;
+            
+            const minutes = parseInt(parts[0]) || 0;
+            const seconds = parseInt(parts[1]) || 0;
+            const totalMinutes = minutes + (seconds / 60);
+            
+            // Vitesse = 60 / pace_en_minutes
+            return totalMinutes > 0 ? 60 / totalMinutes : 0;
+        }
+
+        // Fonction pour convertir la vitesse en pace (pour les tooltips)
+        function speedToPace(speed) {
+            if (speed <= 0) return 'N/A';
+            const paceMinutes = 60 / speed;
+            const minutes = Math.floor(paceMinutes);
+            const seconds = Math.round((paceMinutes - minutes) * 60);
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Fonction pour parser le fichier GPX et extraire les données d'élévation
+        async function parseGPXElevation() {
+            try {
+                const response = await fetch('boston-marathon.gpx');
+                const gpxText = await response.text();
+                
+                // Parser le XML
+                const parser = new DOMParser();
+                const gpxDoc = parser.parseFromString(gpxText, 'text/xml');
+                
+                // Extraire tous les points de trace
+                const trkpts = gpxDoc.querySelectorAll('trkpt');
+                
+                const points = [];
+                let cumulativeDistance = 0;
+                let prevLat = null, prevLon = null;
+                
+                trkpts.forEach((trkpt, index) => {
+                    const lat = parseFloat(trkpt.getAttribute('lat'));
+                    const lon = parseFloat(trkpt.getAttribute('lon'));
+                    const ele = parseFloat(trkpt.querySelector('ele').textContent);
+                    
+                    // Calculer la distance depuis le point précédent (formule de Haversine simplifiée)
+                    if (prevLat !== null && prevLon !== null) {
+                        const R = 6371; // Rayon de la Terre en km
+                        const dLat = (lat - prevLat) * Math.PI / 180;
+                        const dLon = (lon - prevLon) * Math.PI / 180;
+                        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                                Math.cos(prevLat * Math.PI / 180) * Math.cos(lat * Math.PI / 180) *
+                                Math.sin(dLon/2) * Math.sin(dLon/2);
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                        const distance = R * c;
+                        cumulativeDistance += distance;
+                    }
+                    
+                    points.push({
+                        distance: cumulativeDistance,
+                        elevation: ele,
+                        lat: lat,
+                        lon: lon
+                    });
+                    
+                    prevLat = lat;
+                    prevLon = lon;
+                });
+                
+                return points;
+            } catch (error) {
+                console.error('Erreur lors du parsing du GPX:', error);
+                return [];
+            }
+        }
+
+        // Fonction pour calculer l'élévation moyenne par segment
+        function calculateElevationBySegments(gpxPoints) {
+            const segments = [
+                { start: 5, end: 10 },
+                { start: 10, end: 15 },
+                { start: 15, end: 20 },
+                { start: 20, end: 25 },
+                { start: 25, end: 30 },
+                { start: 30, end: 35 },
+                { start: 35, end: 40 },
+                { start: 40, end: 42.195 }
+            ];
+            
+            const elevationData = [];
+            
+            segments.forEach(segment => {
+                const segmentPoints = gpxPoints.filter(point => 
+                    point.distance >= segment.start && point.distance <= segment.end
+                );
+                
+                if (segmentPoints.length > 0) {
+                    const avgElevation = segmentPoints.reduce((sum, point) => sum + point.elevation, 0) / segmentPoints.length;
+                    elevationData.push(Math.round(avgElevation));
+                } else {
+                    // Interpolation si pas de points dans ce segment
+                    const closestBefore = gpxPoints.filter(p => p.distance < segment.start).slice(-1)[0];
+                    const closestAfter = gpxPoints.filter(p => p.distance > segment.end)[0];
+                    
+                    if (closestBefore && closestAfter) {
+                        const interpolatedElevation = closestBefore.elevation + 
+                            ((closestAfter.elevation - closestBefore.elevation) * 
+                            ((segment.start + segment.end) / 2 - closestBefore.distance) / 
+                            (closestAfter.distance - closestBefore.distance));
+                        elevationData.push(Math.round(interpolatedElevation));
+                    } else {
+                        elevationData.push(50); // Valeur par défaut
+                    }
+                }
+            });
+            
+            return elevationData;
+        }
+
+        // Fonction pour convertir une couleur hex en rgba
+        function hexToRgba(hex, alpha) {
+            const bigint = parseInt(hex.slice(1), 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return `rgba(${r},${g},${b},${alpha})`;
+        }
+
         // Find the closest available time in the data
         function findClosestTime(targetSeconds, gender) {
             if (!paceData || !paceData[gender]) {
@@ -501,6 +700,219 @@
             });
 
             return closestTime;
+        }
+
+        // Créer le graphique de stratégie d'allure avec profil d'élévation
+        async function createPaceStrategyChart(paces) {
+            const canvas = document.getElementById("paceStrategyChart");
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext("2d");
+            
+            if (currentPaceChart) {
+                currentPaceChart.destroy();
+            }
+
+            // Charger et traiter les données d'élévation
+            const gpxPoints = await parseGPXElevation();
+            const elevationData = calculateElevationBySegments(gpxPoints);
+
+            // Définir les segments et leurs distances
+            const segments = [
+                { key: '5-10km', label: 'KM 5-10', startKm: 5, endKm: 10, midKm: 7.5 },
+                { key: '10-15km', label: 'KM 10-15', startKm: 10, endKm: 15, midKm: 12.5 },
+                { key: '15-20km', label: 'KM 15-20', startKm: 15, endKm: 20, midKm: 17.5 },
+                { key: '20-25km', label: 'KM 20-25', startKm: 20, endKm: 25, midKm: 22.5 },
+                { key: '25-30km', label: 'KM 25-30', startKm: 25, endKm: 30, midKm: 27.5 },
+                { key: '30-35km', label: 'KM 30-35', startKm: 30, endKm: 35, midKm: 32.5 },
+                { key: '35-40km', label: 'KM 35-40', startKm: 35, endKm: 40, midKm: 37.5 },
+                { key: '40-42km', label: 'KM 40-42', startKm: 40, endKm: 42.195, midKm: 41 }
+            ];
+
+            // Préparer les données
+            const labels = segments.map(s => `${s.midKm}km`);
+            const speedData = segments.map(s => paceToSpeed(paces[s.key]));
+            const paceData = segments.map(s => paces[s.key] || 'N/A');
+
+            // Couleurs et gradients
+            const strategyColor = '#667eea';
+            const elevationColor = '#95a5a6';
+            const chartHeight = canvas.height;
+            
+            const speedGradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
+            speedGradient.addColorStop(0, hexToRgba(strategyColor, 0.3));
+            speedGradient.addColorStop(1, hexToRgba(strategyColor, 0.05));
+            
+            const elevationGradient = ctx.createLinearGradient(0, 0, 0, chartHeight);
+            elevationGradient.addColorStop(0, hexToRgba(elevationColor, 0.15));
+            elevationGradient.addColorStop(1, hexToRgba(elevationColor, 0.05));
+
+            currentPaceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Elevation Profile',
+                            data: elevationData,
+                            fill: true,
+                            backgroundColor: elevationGradient,
+                            borderColor: elevationColor,
+                            borderWidth: 2,
+                            tension: 0.4,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
+                            pointBackgroundColor: elevationColor,
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            yAxisID: 'y1',
+                            order: 2
+                        },
+                        {
+                            label: 'Target Pace Strategy',
+                            data: speedData,
+                            fill: false,
+                            backgroundColor: speedGradient,
+                            borderColor: strategyColor,
+                            borderWidth: 4,
+                            tension: 0.4,
+                            pointRadius: 6,
+                            pointHoverRadius: 8,
+                            pointBackgroundColor: '#ffffff',
+                            pointBorderColor: strategyColor,
+                            pointBorderWidth: 3,
+                            pointHoverBackgroundColor: strategyColor,
+                            pointHoverBorderColor: '#ffffff',
+                            pointHoverBorderWidth: 2,
+                            yAxisID: 'y',
+                            order: 1
+                        }
+                    ]
+                },
+                options: {
+                    layout: {
+                        padding: { top: 10, right: 15, bottom: 10, left: 10 }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0,0,0,0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
+                            borderColor: strategyColor,
+                            borderWidth: 2,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: {
+                                title: function(context) {
+                                    const index = context[0].dataIndex;
+                                    return segments[index].label;
+                                },
+                                label: function(context) {
+                                    const index = context.dataIndex;
+                                    const datasetLabel = context.dataset.label;
+                                    
+                                    if (datasetLabel === 'Target Pace Strategy') {
+                                        const speed = context.parsed.y;
+                                        const pace = paceData[index];
+                                        return [
+                                            `Target Pace: ${pace} /km`,
+                                            `Speed: ${speed.toFixed(2)} km/h`
+                                        ];
+                                    } else if (datasetLabel === 'Elevation Profile') {
+                                        const elevation = context.parsed.y;
+                                        return `Elevation: ${elevation}m`;
+                                    }
+                                },
+                                afterBody: function(context) {
+                                    const index = context[0].dataIndex;
+                                    const segment = segments[index];
+                                    return `Distance: ${segment.startKm}-${segment.endKm} km`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Marathon Progression',
+                                font: { size: 14, weight: 'bold' },
+                                color: '#333'
+                            },
+                            ticks: {
+                                color: '#555',
+                                font: { size: 11 }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Speed (km/h)',
+                                font: { size: 14, weight: 'bold' },
+                                color: strategyColor
+                            },
+                            ticks: {
+                                color: strategyColor,
+                                font: { size: 12 },
+                                callback: function(value) {
+                                    return value.toFixed(1) + ' km/h';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(102, 126, 234, 0.1)',
+                                drawBorder: false
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Elevation (m)',
+                                font: { size: 14, weight: 'bold' },
+                                color: elevationColor
+                            },
+                            ticks: {
+                                color: elevationColor,
+                                font: { size: 12 },
+                                callback: function(value) {
+                                    return value + 'm';
+                                }
+                            },
+                            grid: {
+                                drawOnChartArea: false,
+                                drawBorder: false
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true
+                }
+            });
         }
 
         // Display the pace results
@@ -559,12 +971,30 @@
                     `).join('')}
                 </div>
 
+                <!-- Graphique de stratégie d'allure -->
+                <div id="paceStrategyCard">
+                    <div class="strategy-header">
+                        <h3>
+                            <i class="fas fa-chart-line mr-2" style="color: #667eea;"></i>
+                            Pace Strategy Evolution
+                        </h3>
+                        <div class="strategy-subtitle">
+                            Your target paces throughout the marathon distance
+                        </div>
+                    </div>
+                    <canvas id="paceStrategyChart"></canvas>
+                </div>
+
                 <div style="margin-top: 30px; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 15px; text-align: center;">
                     <i class="fas fa-lightbulb mr-2" style="color: #667eea;"></i>
                     <strong>Pro Tip:</strong> These paces are based on successful Boston Marathon finishers. 
                     Start conservatively and adjust based on how you feel during the race!
                 </div>
             `;
+            // Créer le graphique avec un petit délai pour s'assurer que l'élément est visible
+            setTimeout(() => {
+                createPaceStrategyChart(paces);
+            }, 100);
         }
 
         // Show error message
