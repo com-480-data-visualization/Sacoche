@@ -54,8 +54,8 @@
 
         h1 {
             text-align: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #4ca1dd;
+            /*text-shadow: 2px 2px 4px rgba(0,0,0,0.3);*/
             font-size: 2.5em;
             margin-bottom: 30px;
         }
@@ -411,6 +411,33 @@
             font-size: 14px;
             color: #666;
             margin-top: 5px;
+        }
+
+        :root {
+        /* exactly the same soft‐cream as stats.html */
+        --bg-soft: #F9F7F1;
+        }
+
+        /* 1) global background */
+        body {
+        background: var(--bg-soft) !important;
+        /* you can drop the gradient entirely */
+        }
+
+        /* 2) panels: remove all borders & shadows, switch to cream */
+        .input-panel,
+        .results-panel {
+        background-color: var(--bg-soft) !important;
+        box-shadow: none           !important;
+        border: none               !important;
+        backdrop-filter: none      !important;
+        }
+
+        /* if you want your strategy‐card to match too: */
+        #paceStrategyCard {
+        background-color: var(--bg-soft) !important;
+        box-shadow: none           !important;
+        border-left: none          !important;
         }
 
     </style>
