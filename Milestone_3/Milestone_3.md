@@ -102,4 +102,4 @@ A modern browser with:
 **Course:** COM-480 Data Visualization
 **Team:** Sacoche
 **Institution:** École Polytechnique Fédérale de Lausanne (EPFL)  
-**Year:** 2024  
+**Year:** 2025  
