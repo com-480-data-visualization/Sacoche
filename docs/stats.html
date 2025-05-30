@@ -342,8 +342,8 @@
 
 
         <div class="filter-section">
-          <strong>📅 Year</strong>
-          <select id="yearSelect" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ddd;">
+          <strong>🌤️ Weather</strong>
+          <select id="weatherSelect" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ddd;">
             <option value="">Loading...</option>
           </select>
         </div>
@@ -400,6 +400,25 @@
     let currentSplitChart = null;
     // Age range mappings
     const ageRanges = ["18-29", "30-39", "40-49", "50-59", "60-69", "70+"];
+
+    // Weather mappings
+    const weatherMap = {
+      "2015": "rainy",
+      "2016": "sunny",
+      "2017": "cloudy"
+    };
+
+    const weatherLabels = {
+      "rainy": "🌧️ Rainy",
+      "sunny": "☀️ Sunny", 
+      "cloudy": "☁️ Cloudy"
+    };
+
+    const weatherToYear = {
+      "rainy": "2015",
+      "sunny": "2016", 
+      "cloudy": "2017"
+    };
     
     function getURLParameters() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -407,7 +426,7 @@
         runnerLevel: urlParams.get('runnerLevel'),
         ageRange: urlParams.get('ageRange'),
         gender: urlParams.get('gender'),
-        year: urlParams.get('year')
+        weather: urlParams.get('weather')
       };
     }
     
@@ -458,12 +477,12 @@
         }
       }
       
-      // Apply year filter
-      if (params.year && marathonStats[params.year]) {
-        document.getElementById("yearSelect").value = params.year;
+      // Apply weather filter
+      if (params.weather && weatherToYear[params.weather]) {
+        document.getElementById("weatherSelect").value = params.weather;
         filterApplied = true;
-        appliedFilters.push(`Year: ${params.year}`);
-        console.log('✅ Applied year filter:', params.year);
+        appliedFilters.push(`Weather: ${weatherLabels[params.weather]}`);
+        console.log('✅ Applied weather filter:', params.weather);
       }
       
       if (filterApplied) {
@@ -580,19 +599,19 @@
     }
 
     function initializeApp() {
-      const yearSelect = document.getElementById("yearSelect");
-      yearSelect.innerHTML = "";
+      const weatherSelect = document.getElementById("weatherSelect");
+      weatherSelect.innerHTML = "";
       
-      // Sort years and add to dropdown
-      const years = Object.keys(marathonStats).sort();
-      years.forEach(year => {
+      // Add weather options
+      const weathers = ["rainy", "sunny", "cloudy"];
+      weathers.forEach(weather => {
         const opt = document.createElement("option");
-        opt.value = year;
-        opt.textContent = year;
-        yearSelect.appendChild(opt);
+        opt.value = weather;
+        opt.textContent = weatherLabels[weather];
+        weatherSelect.appendChild(opt);
       });
       
-      yearSelect.value = years[0];
+      weatherSelect.value = "rainy"; // Default to first weather
       
       setupEventListeners();
       updateAgeRangeDisplay();
@@ -600,7 +619,7 @@
     }
 
     function setupEventListeners() {
-      document.getElementById("yearSelect").addEventListener("change", updateDashboard);
+      document.getElementById("weatherSelect").addEventListener("change", updateDashboard);
       document.getElementById("ageRangeSlider").addEventListener("input", function() {
         updateAgeRangeDisplay();
         updateDashboard();
@@ -636,7 +655,8 @@
     }
 
     function getFilteredData() {
-      const selectedYear = document.getElementById("yearSelect").value;
+      const selectedWeather = document.getElementById("weatherSelect").value;
+      const selectedYear = weatherToYear[selectedWeather];
       const selectedAgeRange = parseInt(document.getElementById("ageRangeSlider").value);
       const selectedGenders = Array.from(document.querySelectorAll('input[name="gender"]:checked')).map(cb => parseInt(cb.value));
       const selectedLevels = Array.from(document.querySelectorAll('input[name="level"]:checked')).map(cb => cb.value);
@@ -670,11 +690,12 @@
     }
 
     function updateDashboard() {
-      const selectedYear = document.getElementById("yearSelect").value;
+      const selectedWeather = document.getElementById("weatherSelect").value;
+      const selectedYear = weatherToYear[selectedWeather];
       const yearData = marathonStats[selectedYear];
       
       if (!yearData) {
-        console.error('No data for selected year:', selectedYear);
+        console.error('No data for selected weather/year:', selectedWeather, selectedYear);
         return;
       }
       
@@ -914,7 +935,8 @@
 
     function getSplitFilteredData() {
       if (!splitStats) return [];
-      const year = document.getElementById("yearSelect").value;
+      const selectedWeather = document.getElementById("weatherSelect").value;
+      const year = weatherToYear[selectedWeather];
       const allSegs = (splitStats.years[year] || []);
       const ageIdx   = +document.getElementById("ageRangeSlider").value;
       const ageVal   = ageIdx === ageRanges.length ? null : ageRanges[ageIdx];
