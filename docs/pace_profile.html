@@ -259,17 +259,19 @@
         }
 
         .segment-pace {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #667eea;
+            font-family: 'Courier New', monospace; /* Police monospace pour les temps */
             position: relative;
             z-index: 1;
         }
 
         .segment-distance {
-            font-size: 12px;
+            font-size: 13px;
             color: #666;
             margin-top: 5px;
+            font-style: italic;
             position: relative;
             z-index: 1;
         }
@@ -420,7 +422,7 @@
     </a>
 
     <div class="container">
-        <h1><i class="fas fa-stopwatch mr-3"></i>Boston Marathon Pace Calculator</h1>
+        <h1><i class="fas fa-stopwatch mr-3"></i>Boston Marathon Personalized Pacing Strategy</h1>
 
         <div class="calculator-container">
             <div class="input-panel">
@@ -893,20 +895,85 @@
             });
         }
 
+        // Calculate split times and paces for each 5km interval
+        function calculateSplitTimes(paces, targetTimeSeconds) {
+            const splits = [];
+            
+            // For the first 5km, we need to estimate the pace
+            // We'll use the average of the first segment (5-10km) as baseline
+            const firstSegmentPace = paces['5-10km'];
+            let estimatedFirst5kmPace = firstSegmentPace;
+            
+            // Convert pace string to seconds per km
+            function paceToSecondsPerKm(paceString) {
+                if (!paceString || paceString === 'N/A') return 0;
+                const parts = paceString.split(':');
+                return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+            }
+            
+            // Convert seconds per km back to pace string
+            function secondsToPaceString(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                return `${minutes}:${secs.toString().padStart(2, '0')}`;
+            }
+            
+            // Calculate cumulative time
+            let cumulativeTime = 0;
+            
+            // 5km split
+            const first5kmSeconds = paceToSecondsPerKm(estimatedFirst5kmPace) * 5;
+            cumulativeTime += first5kmSeconds;
+            splits.push({
+                distance: '5 km',
+                time: Math.floor(cumulativeTime / 60) + ':' + (Math.floor(cumulativeTime % 60)).toString().padStart(2, '0'),
+                pace: estimatedFirst5kmPace
+            });
+            
+            // Define segments with their distances
+            const segments = [
+                { key: '5-10km', distance: 5 },
+                { key: '10-15km', distance: 5 },
+                { key: '15-20km', distance: 5 },
+                { key: '20-25km', distance: 5 },
+                { key: '25-30km', distance: 5 },
+                { key: '30-35km', distance: 5 },
+                { key: '35-40km', distance: 5 },
+                { key: '40-42km', distance: 2.195 }
+            ];
+            
+            // Calculate splits for each segment
+            segments.forEach((segment, index) => {
+                const pace = paces[segment.key];
+                const paceSeconds = paceToSecondsPerKm(pace);
+                const segmentTime = paceSeconds * segment.distance;
+                cumulativeTime += segmentTime;
+                
+                const kmMark = index < 7 ? `${(index + 2) * 5} km` : '42.2 km';
+                const timeMinutes = Math.floor(cumulativeTime / 60);
+                const timeSeconds = Math.floor(cumulativeTime % 60);
+                const timeString = `${Math.floor(timeMinutes / 60)}:${(timeMinutes % 60).toString().padStart(2, '0')}:${timeSeconds.toString().padStart(2, '0')}`;
+                
+                splits.push({
+                    distance: kmMark,
+                    time: timeString,
+                    pace: pace
+                });
+            });
+            
+            return splits;
+        }
+
         // Display the pace results
         function displayResults(gender, targetTime, paces) {
             const resultsContent = document.getElementById('results-content');
             
-            const segments = [
-                { key: '5-10km', title: 'KM 5-10', distance: '5 km' },
-                { key: '10-15km', title: 'KM 10-15', distance: '5 km' },
-                { key: '15-20km', title: 'KM 15-20', distance: '5 km' },
-                { key: '20-25km', title: 'KM 20-25', distance: '5 km' },
-                { key: '25-30km', title: 'KM 25-30', distance: '5 km' },
-                { key: '30-35km', title: 'KM 30-35', distance: '5 km' },
-                { key: '35-40km', title: 'KM 35-40', distance: '5 km' },
-                { key: '40-42km', title: 'KM 40-42', distance: '2.195 km' }
-            ];
+            // Calculate split times for display
+            const targetSeconds = timeToSeconds(
+                parseInt(targetTime.split(':')[0]), 
+                parseInt(targetTime.split(':')[1])
+            );
+            const splits = calculateSplitTimes(paces, targetSeconds);
 
             resultsContent.innerHTML = `
                 <div class="results-header">
@@ -931,15 +998,25 @@
                     <canvas id="paceStrategyChart"></canvas>
                 </div>
 
+                <div style="margin-top: 30px; margin-bottom: 20px; text-align: center;">
+                    <h3 style="color: #333; margin: 0; font-size: 20px; font-weight: bold;">
+                        <i class="fas fa-clock mr-2" style="color: #667eea;"></i>
+                        Intermediary Times
+                    </h3>
+                    <div style="font-size: 14px; color: #666; margin-top: 8px;">
+                        Cumulative times at each milestone
+                    </div>
+                </div>
+
                 <div class="pace-grid">
-                    ${segments.map(segment => `
+                    ${splits.map(split => `
                         <div class="pace-segment">
                             <div class="segment-title">
-                                <i class="fas fa-route mr-1"></i>
-                                ${segment.title}
+                                <i class="fas fa-flag-checkered mr-1"></i>
+                                ${split.distance}
                             </div>
-                            <div class="segment-pace">${paces[segment.key] ? paces[segment.key] + ' min/km' : 'N/A'}</div>
-                            <div class="segment-distance">${segment.distance}</div>
+                            <div class="segment-pace">${split.time}</div>
+                            <div class="segment-distance">${split.pace} min/km</div>
                         </div>
                     `).join('')}
                 </div>
