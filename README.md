@@ -46,7 +46,7 @@ Please, fill the following sections about your project.
 
 **10% of the final grade**
 
-[View the Website](https://com-480-data-visualization.github.io/Sacoche/test.html)
+[View the Website](https://com-480-data-visualization.github.io/Sacoche/home_page.html)
 
 
 
